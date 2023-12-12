@@ -97,12 +97,6 @@ class EmployeeUI:
                     rank == "Flight attendant"
                     break
 
-        while True:
-                    license = input("Enter licence: ")
-                    if license.isalnum():
-                        break
-                    else:
-                        print("Invalid input!")
 
         while True:
             phone = input("Enter phone number: ")
@@ -127,7 +121,7 @@ class EmployeeUI:
 
     
 
-        employee = Crew(nid, name, ssn, role, rank, license, phone, email, address)
+        employee = Crew(nid, name, ssn, role, rank, phone, email, address)
         
         self.logic_wrapper.add_employee(employee)
 
@@ -142,7 +136,6 @@ class EmployeeUI:
             print(f"SSN: {elem.ssn}")
             print(f"Role: {elem.rank}")
             print(f"Rank: {elem.role}")
-            print(f"License: {elem.license}")
             print(f"Phone number: {elem.phone_nr}")
             print(f"e-Mail: {elem.email}")
             print(f"Address: {elem.address}")
@@ -182,10 +175,9 @@ class EmployeeUI:
         print("Select what you want to update: ")
         print("1. Role")
         print("2. Rank")
-        print("3. License")
-        print("4. Phone number")
-        print("5. E-Mail")
-        print("6. Address")
+        print("3. Phone number")
+        print("4. E-Mail")
+        print("5. Address")
 
         what_to_update = input("Select what you want to update: ")
 
@@ -197,15 +189,12 @@ class EmployeeUI:
                 update = "rank"
                 break
             elif what_to_update == "3":
-                update = "license"
-                break
-            elif what_to_update == "4":
                 update = "phone_nr"
                 break
-            elif what_to_update == "5":
+            elif what_to_update == "4":
                 update = "email"
                 break
-            elif what_to_update == "6":
+            elif what_to_update == "5":
                 update = "address"
                 break
             else:

@@ -1,5 +1,6 @@
 from logic.employee_logic import EmployeeLogic
 from logic.destination_logic import DestinationLogic
+from logic.flight_logic import FlightLogic
 from data.data_wrapper import DataWrapper
 
 class LogicWrapper:
@@ -8,6 +9,7 @@ class LogicWrapper:
         self.employee_logic = EmployeeLogic()
         self.destination_logic = DestinationLogic()
         self.data_wrapper = DataWrapper()
+        self.flight_logic = FlightLogic()
 
     def add_employee(self, employee):
         '''Adds an employee to csv file'''
@@ -33,3 +35,6 @@ class LogicWrapper:
 
     def new_information_employee(self, line, column, update):
         self.employee_logic.update_information_employee(line, column, update)
+
+    def make_flight(self, flight):
+        self.flight_logic.create_flight(flight)

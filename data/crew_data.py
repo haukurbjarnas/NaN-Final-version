@@ -17,7 +17,6 @@ class CrewData:
                     row["ssn"],
                     row["role"],
                     row["rank"],
-                    row["license"],
                     row["phone_nr"],
                     row["email"],
                     row["address"]
@@ -26,7 +25,7 @@ class CrewData:
 
     def create_crew_member(self, crew):
         with open(self.file_name, 'a', newline='', encoding="utf-8") as csvfile:
-            fieldnames = ["nid", "name", "ssn", "role", "rank", "license", "phone_nr", "email", "address"]
+            fieldnames = ["nid", "name", "ssn", "role", "rank", "phone_nr", "email", "address"]
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
             writer.writerow({
                 'nid': crew.nid,
@@ -34,7 +33,6 @@ class CrewData:
                 'ssn': crew.ssn,
                 'role': crew.role,
                 'rank': crew.rank,
-                'license': crew.license,
                 'phone_nr': crew.phone_nr,
                 'email': crew.email,
                 'address': crew.address
@@ -59,7 +57,7 @@ class CrewData:
 
     def write_csv(self, data):
         with open(self.file_name, 'w', newline='', encoding="utf-8") as csvfile:
-            fieldnames = ["nid", "name", "ssn", "role", "rank", "license", "phone_nr", "email", "address"]
+            fieldnames = ["nid", "name", "ssn", "role", "rank", "phone_nr", "email", "address"]
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
             
             writer.writeheader()
@@ -70,7 +68,6 @@ class CrewData:
                     'ssn': crew.ssn,
                     'role': crew.role,
                     'rank': crew.rank,
-                    'license': crew.license,
                     'phone_nr': crew.phone_nr,
                     'email': crew.email,
                     'address': crew.address

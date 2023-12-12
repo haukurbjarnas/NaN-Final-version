@@ -2,8 +2,8 @@ import csv
 from models.destination import Destination
 
 class DestinationData:
-    def __init__(self) -> None:
-        self.file_name = "files/destinations.csv"
+    def __init__(self, file_name="files/destinations.csv"):
+        self.file_name = file_name
 
     def read_all_destinations(self):
         ret_list = []

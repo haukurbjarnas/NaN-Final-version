@@ -2,10 +2,10 @@ import csv
 from models.voyage import Voyage
 from data.destination_data import DestinationData
 from data.crew_data import CrewData
-from data.flight_data import Flight_Data
+from data.flight_data import FlightData
 class Voyage_Data:
-    def init(self):
-        self.file_name = "files/voyages.csv"
+    def __init__(self, file_name="files/voyages.csv"):
+        self.file_name = file_name
 
     def read_all_voyages(self):
         '''Reads all voyages in the voyage csv file and returns it in ret_list'''
@@ -14,8 +14,8 @@ class Voyage_Data:
             reader = csv.DictReader(csvfile)
             for row in reader:
                 ret_list.append(Voyage(
-                    Flight_Data.get_flight_by_id(row["flight_nr"]),
-                    Flight_Data.get_flight_by_id(row["flight_nr_back"]),
+                    FlightData.get_flight_by_id(row["flight_nr"]),
+                    FlightData.get_flight_by_id(row["flight_nr_back"]),
                     CrewData.get_crew_member_by_id(row["captain"]),
                     CrewData.get_crew_member_by_id(row["copilot"]),
                     CrewData.get_crew_member_by_id(row["fa1"]),

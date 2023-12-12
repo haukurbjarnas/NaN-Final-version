@@ -15,6 +15,7 @@ class FlightUI:
 
     def input_prompt(self):
         while True:
+            self.flight_menu()
             command = input("Enter a command: ")
             command = command.lower()
             if command == "1":
@@ -45,7 +46,7 @@ class FlightUI:
 
         num = 1
         for elem in list_of_destinations:
-            print(f"{num}. Counrty: {elem.country} Airport: {elem.airport}")
+            print(f"{num}. Country: {elem.country} Airport: {elem.airport}")
             num += 1
 
         select_place_of_arrival = input("Please select place of arrival: ")
