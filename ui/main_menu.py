@@ -13,7 +13,9 @@ class MainMenu:
         print("Main Menu - Welcome!")
         print("1. Employee management")
         print("2. Voyage management")
-        print("3. Destination management")
+        print("3. Flight managemnt")
+        print("4. Destination management")
+        print("5. Employee schedules")
         print("(Q)uit to exit")
 
     def input_prompt(self):
@@ -35,9 +37,13 @@ class MainMenu:
                 if back == "q":
                     return "q"
             elif command == "3":
+                pass
+            elif command == "4":
                 menu = DestinationUI()
                 back = menu.input_prompt()
                 if back == "q":
                     return "q"
+            elif command == "5":
+                pass
             else:
                 print("Invalid input!")
