@@ -47,10 +47,10 @@ class EmployeeUI:
             
         while True:
             name = input("Enter name: ")
-            try:
-                num = int(name)
-            except ValueError:
+            if all(x.isalpha() or x.isspace() for x in name):
                 break
+            else:
+                print("Invalid input!")
         
         while True:
             ssn = input("Enter social security number: ")
@@ -78,24 +78,24 @@ class EmployeeUI:
                     rank_choice = int(input("Select either option 1. or 2.: "))
                 except ValueError:
                     print("Please input the number associated with the rank")
-                    if rank_choice == 1:
-                        rank = "Captain"
-                        break
-                    elif rank_choice == 2:
-                        rank = "Co-Pilot"
-                        break
+                if rank_choice == 1:
+                    rank = "Captain"
+                    break
+                elif rank_choice == 2:
+                    rank = "Co-Pilot"
+                    break
             if role == "Flight attendant":
                 print(f"What role does {name} have as a {role}? 1. Main flight attendant or 2. Flight attendant")
                 try:
                     rank_choice = int(input("Select either option 1. or 2.: "))
                 except ValueError:
                     print("Please input the number associated with the rank")
-                    if rank_choice == 1:
-                        rank == "Main flight attendant"
-                        break
-                    elif rank_choice == 2:
-                        rank == "Flight attendant"
-                        break
+                if rank_choice == 1:
+                    rank == "Main flight attendant"
+                    break
+                elif rank_choice == 2:
+                    rank == "Flight attendant"
+                    break
 
         while True:
                     license = input("Enter licence: ")

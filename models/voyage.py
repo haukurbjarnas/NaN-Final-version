@@ -1,5 +1,5 @@
 class Voyage:
-    def init__(self, flight_nr, flight_nr_back, aircraft_id, captain, copilot, fa1, fa2):
+    def __init__(self, flight_nr, flight_nr_back, aircraft_id, captain="N/A", copilot="N/A", fa1="N/A", fa2="N/A"):
         self.flight_nr = flight_nr
         self.flight_nr_back = flight_nr_back
         self.aircraft_id = aircraft_id

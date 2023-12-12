@@ -11,6 +11,9 @@ class VoyageUI:
         print("1. Create voyage")
         print("2. List all voyages")
         print("3. Add crew to voyage")
+        print("")
+        print("-"*30)
+        print("To create a voyage, please create two flights with the same destination")
     
     def input_prompt(self):
         while True:
