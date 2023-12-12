@@ -10,7 +10,7 @@ class VoyageUI:
         print("Voyage Management")
         print("1. Create voyage")
         print("2. List all voyages")
-    
+        print("Enter (B)ack to go back")
     def input_prompt(self):
         pass
 

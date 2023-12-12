@@ -10,6 +10,7 @@ class DestinationUI:
         print("Destination Menu")
         print("1. Create destination")
         print("2. List all destinations")
+        print("Enter (B)ack to go back")
 
     def input_prompt(self):
         while True:
@@ -75,7 +76,7 @@ class DestinationUI:
         
 
         destination = Destination(numeric_id, id, country, airport, contact_name, contact_number, distance)
-
+        print("Destination created successfully!")
         self.logic_wrapper.get_destination(destination)
 
     def print_all_destinations(self):

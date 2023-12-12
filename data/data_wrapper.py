@@ -9,7 +9,7 @@ class DataWrapper:
         self.destination_data = DestinationData()
 
     def create_crew_member(self, crew):
-        return self.crew_data.create_crew_member(crew)
+        self.crew_data.create_crew_member(crew)
     
     def read_all_crew_members(self):
         return self.crew_data.read_all_crew_members()
@@ -18,7 +18,7 @@ class DataWrapper:
         self.crew_data.update_csv(line, coulmn, update)
 
     def create_destination(self, destination):
-        return self.destination_data.create_destination(destination)
+        self.destination_data.create_destination(destination)
     
     def read_all_destinations(self):
         return self.destination_data.read_all_destinations()

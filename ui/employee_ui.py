@@ -104,10 +104,12 @@ class EmployeeUI:
         employee = Crew(nid, name, ssn, role, rank, phone, email, address)
         
         self.logic_wrapper.add_employee(employee)
-
+        print("Employee created succesfully!")
+        
     def print_all_employees(self):
         
         result = self.logic_wrapper.list_all_employees()
+        print("All EMPLOYEES:")
         for elem in result:
             print("")
             print("-"*30)
@@ -127,13 +129,17 @@ class EmployeeUI:
         a_list = self.logic_wrapper.list_all_pilots()
 
         for elem in a_list:
+            print("-"*40)
             print(elem)
-
+            
+        print("-"*40)
     def print_attendants(self):
         a_list = self.logic_wrapper.list_all_attendants()
 
         for elem in a_list:
+            print("-"*40)
             print(elem)
+        print("-"*40)
 
     def update_employee(self):
         
