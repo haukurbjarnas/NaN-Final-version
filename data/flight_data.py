@@ -16,8 +16,10 @@ class FlightData:
             for row in reader:
                 ret_list.append(Flight(
                     row["flight_nr"],
-                    DestinationData.get_destination_by_id(row["dep_from"]),
-                    DestinationData.get_destination_by_id(row["arr_at"]),
+                    #DestinationData.get_destination_by_id(row["dep_from"]),
+                    #DestinationData.get_destination_by_id(row["arr_at"]),
+                    row["dep_from"],
+                    row["arr_at"],
                     row["departure_time"],
                     row["arrival_time"],
                 ))

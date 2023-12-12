@@ -21,7 +21,7 @@ class FlightUI:
             if command == "1":
                 self.create_flight()
             elif command == "2":
-                pass
+                self.print_all_flights()
             elif command == "b":
                 return "b"
             
@@ -60,3 +60,19 @@ class FlightUI:
         flight = Flight(flight_nr, dep_from, arr_at, departure_time, arrival_time)
 
         self.logic_wrapper.make_flight(flight)
+
+    def print_all_flights(self):
+        
+        all_flights = self.logic_wrapper.get_all_flights()
+
+        for elem in all_flights:
+
+            print("")
+            print("-"*30)
+            print(f"Flight number: {elem.flight_nr}")
+            print(f"Departure from: {elem.dep_from}")
+            print(f"Arrival at: {elem.arr_at}")
+            print(f"Time of departure from {elem.dep_from}: {elem.departure_time}")
+            print(f"Time of arrival at {elem.arr_at}: {elem.arrival_time}")
+            print("-"*30)
+            print("")

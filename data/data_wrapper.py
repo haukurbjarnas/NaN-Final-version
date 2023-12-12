@@ -27,3 +27,6 @@ class DataWrapper:
     
     def create_flight(self, flight):
         self.flight_data.create_flight(flight)
+
+    def read_all_flights(self):
+        return self.flight_data.read_all_flights()
