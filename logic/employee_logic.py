@@ -7,7 +7,25 @@ class EmployeeLogic:
 
     def add_employee(self, employee):
         '''Adds an employee to the data base'''
-        self.crew_wrapper.create_crew_member(employee)
+        self.crew_wrapper.create_crew_member(employee) 
+
+        if self.crew_wrapper.get_crew_member_by_id(employee.nid) != None:
+            return error_1  
+
+        elif self.crew_wrapper.get_crew_member_by_email(employee.email) != None: 
+            return error_2  
+
+        elif self.crew_wrapper.get_crew_member_by_phone_nr(employee.phone_nr) != None: 
+            return error_3 
+
+        elif self.crew_wrapper.get_crew_member_by_ssn(employee.ssn) != None: 
+            return error_4
+
+        else :
+            return successful
+        
+
+        
 
     def get_all_employees(self):
         return self.crew_wrapper.read_all_crew_members()
