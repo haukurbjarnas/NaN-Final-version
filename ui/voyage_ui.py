@@ -1,10 +1,12 @@
 from models.voyage import Voyage
 from logic.logic_wrapper import LogicWrapper
+from ui.employee_ui import EmployeeUI
 
 class VoyageUI:
 
     def __init__(self) -> None:
         self.logic_wrapper = LogicWrapper()
+        self.employee_ui = EmployeeUI()
 
     def voyage_menu(self):
         print("Voyage Management")
@@ -60,13 +62,13 @@ class VoyageUI:
         assign_pilots = assign_pilots.lower()
         if assign_pilots == "y":
             
-            all_pilots = self.logic_wrapper.list_all_pilots()
+            self.employee_ui.print_pilots()
 
         assign_attendants = input("Do you want to assign flight attendants now? (Y)es (N)o: ")
         assign_attendants = assign_attendants.lower()
         if assign_attendants == "y":
             
-            all_attendants = self.logic_wrapper.list_all_attendants()
+            self.employee_ui.print_attendants()
 
 
     def print_all_voyages(self):

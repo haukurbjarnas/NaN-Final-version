@@ -119,6 +119,9 @@ class EmployeeUI:
             else:
                 print("Invalid input!")
 
+        print(role)
+        print(rank)
+
     
 
         employee = Crew(nid, name, ssn, role, rank, phone, email, address)

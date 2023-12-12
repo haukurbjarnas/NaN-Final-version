@@ -16,7 +16,7 @@ class EmployeeLogic:
         pilot_list = []
         crew_list = self.crew_wrapper.read_all_crew_members()
         for elem in crew_list:
-            if elem.rank == "Pilot":
+            if elem.role == "Pilot":
                 pilot_list.append(f"Name: {elem.name} Rank: {elem.role}") # gæti verið vafasamt brot
         
         return pilot_list
@@ -25,7 +25,7 @@ class EmployeeLogic:
         attendant_list = []
         crew_list = self.crew_wrapper.read_all_crew_members()
         for elem in crew_list:
-            if elem.rank == "Flight attendant":
+            if elem.role == "Flight attendant":
                 attendant_list.append(f"Name: {elem.name} Rank: {elem.role}") # gæti verið vafasamt brot
 
         return attendant_list

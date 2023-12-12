@@ -3,7 +3,7 @@ from logic.logic_wrapper import LogicWrapper
 class SchedulesUI:
 
     def __init__(self) -> None:
-        pass
+        self.logic_wrapper = LogicWrapper()
 
     def schedule_menu(self):
         print("Employee Schedules")
