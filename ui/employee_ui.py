@@ -43,7 +43,7 @@ class EmployeeUI:
             if nid.isdigit():
                 break
             else:
-                print("Invaldi input!")
+                print("Invalid input!")
             
         while True:
             name = input("Enter name: ")
@@ -85,17 +85,19 @@ class EmployeeUI:
                     rank = "Co-Pilot"
                     break
             if role == "Flight attendant":
-                print(f"What role does {name} have as a {role}? 1. Main flight attendant or 2. Flight attendant")
+                print(f"What role does {name} have as a {role}? 1. Main flight attendant or 2. Normal Flight attendant")
                 try:
                     rank_choice = int(input("Select either option 1. or 2.: "))
                 except ValueError:
                     print("Please input the number associated with the rank")
                 if rank_choice == 1:
-                    rank == "Main flight attendant"
+                    rank = "Main flight attendant"
                     break
                 elif rank_choice == 2:
-                    rank == "Flight attendant"
+                    rank = "Normal Flight attendant"
                     break
+                else:
+                    print("Invalid input!")
 
 
         while True:
@@ -103,30 +105,26 @@ class EmployeeUI:
             if phone.isdigit():
                 break
             else:
-                print("Invalid input! Phone NUMBERS only include NUMBERS ;P")
+                print("Invalid input!")
 
         while True:
             email = input("Enter e-mail address: ")
-            if email:
+            if email.isascii() and 0 < len(email) < 40:
                 break
             else:
                 print("Invalid input!")
 
         while True:
             address = input("Enter home address (street and number): ")
-            if address.isalnum():
+            if all(x.isalnum() or x.isspace() for x in address):
                 break
             else:
                 print("Invalid input!")
 
-        print(role)
-        print(rank)
-
-    
-
         employee = Crew(nid, name, ssn, role, rank, phone, email, address)
         
         self.logic_wrapper.add_employee(employee)
+        print("Employee created successfully!")
 
     def print_all_employees(self):
         

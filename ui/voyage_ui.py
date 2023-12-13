@@ -18,16 +18,21 @@ class VoyageUI:
     
     def input_prompt(self):
         while True:
+            print("")
             self.voyage_menu()
             command = input("Enter a command: ")
             command = command.lower()
             if command == "1":
+                print("")
                 self.create_a_voyage()
             elif command == "2":
+                print("")
                 pass
             elif command == "3":
+                print("")
                 pass
             elif command == "b":
+                print("")
                 return "b"
             else:
                 print("Invalid input!")
@@ -35,8 +40,6 @@ class VoyageUI:
     def create_a_voyage(self):
 
         all_flights = self.logic_wrapper.get_all_flights()
-
-        print(type(all_flights))
 
         num = 1
         for elem in all_flights:
