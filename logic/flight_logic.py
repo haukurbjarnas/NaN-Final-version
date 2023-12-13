@@ -6,14 +6,16 @@ class FlightLogic:
         self.flight_wrapper = DataWrapper() 
 
     def add_flight(self, flight): 
-        '''Adds a flight to the data base'''
-        self.flight_wrapper.create_flight(flight)  
+        '''Adds a flight to the data base''' 
+        flight_error_1 = 1 
+        flight_successful = 0
        
         if self.flight_wrapper.get_flight_by_flight_number(flight.flight_number) != None: 
-            return error_1 
+            return flight_error_1 
         
-        else :
-            return successful
+        else: 
+            self.flight_wrapper.create_flight(flight)
+            return flight_successful
 
     def get_all_flights(self): 
         return self.flight_wrapper.read_all_flights() 
