@@ -11,7 +11,8 @@ class LogicWrapper:
 
     def add_employee(self, employee):
         '''Adds an employee to csv file'''
-        self.employee_logic.add_employee(employee)
+        result = self.employee_logic.add_employee(employee) 
+        return result
 
     def list_all_employees(self):
         '''Gets all employees from the csv file'''
