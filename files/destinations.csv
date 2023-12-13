@@ -1,8 +1,5 @@
 numeric_id,id,country,airport,contact_name,contact_number,distance
-1,SWE,Sweden,Stockholm Arlanda,Cristiano Ronaldo suiii,69696969,5000
-2,HTR,England,Heathrow Airport,Hugh Grant,7777676,6000
-3,BAR,Spain,Barcelona Airport,Jude Bellingham,8989888,7500
-4,JFK,United States of America,JFK,Peter Parker,9899999,14000
-5,SOA,South Korea,Seoul Airport,Son Heung-Min,8888999,9939
-6,ANA,Madagascar,Anatandanarivo Airport,King Julien,5466666,9877
-7,MAL,Malaysia,Malysia Airport,Ladyboy Thompson,4206969,9001
+1,STH03,Sweden,Stockholm Arlanda,Zlatan Ibrahimovic,666,5000
+2,LDN04,England,Heathrow Airport,Jude Bellingham,3524,5400
+3,NYC05,United States of America,JFK Airport,Jay-Z,357358,13536
+4,KEF06,Iceland,Keflavík Airport,Gísli Pálmi,203,135610

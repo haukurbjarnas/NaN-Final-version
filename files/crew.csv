@@ -1,4 +1,6 @@
 nid,name,ssn,role,rank,phone_nr,email,address
-1,Breki Gunnarsson Arndal,0308032480,Captain,Pilot,8234649,brekiga@gmail.com,Austurkór 98
-2,Jesus Christ Amen,2412006969,Normal Flight attendant,Flight attendant,69696969,jesus@heaven.org,hellstreet 7
-3,Jakob Máni,1212172330,Co-Pilot,Pilot,8888888,kobbi@jesus.net,heaven 3
+1,Haukur Bjarnason,0601042470,Pilot,Captain,7704850,hauksib,Smyrilshlíð 11
+2,Helgi Edwald,2506041234,Pilot,Co-Pilot,5812345,dickcheese,Lynghagi 22
+3,Dúna Pálsdóttir,2611041234,Flight attendant,Main flight attendant,5525522,dunsipunsi,Hringbraut 66
+4,Óliver Karl Sandberg Birgisson,0911041234,Flight attendant,Normal Flight attendant,112,kengerinn,Smyrilshlíð 3
+5,Breki Arndal,03,Pilot,Captain,2425236,geggjadur,Örg kópavegur eða eh

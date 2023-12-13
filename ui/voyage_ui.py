@@ -41,16 +41,24 @@ class VoyageUI:
 
     def create_a_voyage(self):
 
+        flight_number = input("Enter flight number: ")
+
         all_flights = self.logic_wrapper.get_all_flights()
 
         num = 1
+        
         for elem in all_flights:
+            print(elem)
             print(f"{num}. Flight number: {elem.flight_nr}, Departing from {elem.dep_from} and arriving at {elem.arr_at}")
             num += 1
 
         flight_one_choice = int(input("Select a flight: "))
 
-        flight_one = all_flights[flight_one_choice-1]
+        flight_one = all_flights[flight_one_choice-1].flight_nr
+
+        print(type(all_flights))
+
+        
 
         matching_flights = self.logic_wrapper.get_matching_flights(flight_one)
 
@@ -61,19 +69,16 @@ class VoyageUI:
             num += 1
 
         flight_two_choice = int(input("Select a matching flight: "))
-        flight_two = matching_flights[flight_two_choice-1]
+        flight_two = matching_flights[flight_two_choice-1].flight_nr
 
-        assign_pilots = input("Do you want to assign pilots now? (Y)es (N)o: ")
-        assign_pilots = assign_pilots.lower()
-        if assign_pilots == "y":
-            
-            self.employee_ui.print_pilots()
+        while True:
+            assign_crew = input("Do you want to assign crew members now? (Y)es or (N)o: ")
+            if assign_crew == "y":
+                self.add_crew_to_voyage()
+            else:
+                break
 
-        assign_attendants = input("Do you want to assign flight attendants now? (Y)es (N)o: ")
-        assign_attendants = assign_attendants.lower()
-        if assign_attendants == "y":
-            
-            self.employee_ui.print_attendants()
+        voyage = Voyage(flight_number, )
 
 
     def print_all_voyages(self):
@@ -110,25 +115,64 @@ class VoyageUI:
         print("3. Flight attendant 1")
         print("4. Flight attendant 2")
 
-        wich_crew_to_add = input("Enter number of crew mamber to add: ")
+        wich_crew_to_add = input("Enter number of crew member to add: ")
 
         while True:
+            
             if wich_crew_to_add == "1":
                 update = "captain"
+                all_pilots = self.logic_wrapper.list_all_pilots()
+                num = 1
+                for elem in all_pilots:
+                    if elem.rank == "Captain":
+                        print(f"{num}. {elem.name}")
+                        num += 1
+
+                captain_choice = int(input("Select a captain: "))
+
+                new_info = all_pilots[captain_choice-1].name
                 break
             elif wich_crew_to_add == "2":
                 update = "copilot"
+                all_pilots = self.logic_wrapper.list_all_pilots()
+                print(all_pilots)
+                num = 1
+                for elem in all_pilots:
+                    if elem.rank == "Co-Pilot":
+                        print(f"{num}. {elem.name}")
+                        num += 1
+
+                copilot_choice = int(input("Select a co-pilot: "))
+
+                new_info = all_pilots[copilot_choice-1].name
                 break
             elif wich_crew_to_add == "3":
                 update = "fa1"
+                all_attendants = self.logic_wrapper.list_all_attendants()
+                num = 1
+                for elem in all_attendants:
+                    if elem.rank == "Main flight attendant":
+                        print(f"{num}. {elem.name}")
+                        num += 1
+
+                main_choice = int(input("Select a Main flight attendant: "))
+
+                new_info = all_pilots[main_choice-1].name
                 break
             elif wich_crew_to_add == "4":
                 update = "fa2"
-                break
+                all_attendants = self.logic_wrapper.list_all_attendants()
+                num = 1
+                for elem in all_attendants:
+                    if elem.rank == "Normal Flight attendant":
+                        print(f"{num}. {elem.name}")
+                        num += 1
+
+                normal_choice = int(input("Select a captain: "))
+
+                new_info = all_attendants[normal_choice-1].name
             else:
                 print("Invalid input!")
-
-        new_info = input("Enter name of crew member:")
 
         self.logic_wrapper.add_crew_to_voyage(int(wich_crew_to_add)-1, update, new_info)
 
