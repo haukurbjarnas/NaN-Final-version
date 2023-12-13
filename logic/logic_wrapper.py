@@ -1,5 +1,8 @@
 from logic.employee_logic import EmployeeLogic
-from logic.destination_logic import DestinationLogic
+from logic.destination_logic import DestinationLogic 
+from logic.voyage_logic import VoyageLogic 
+from logic.flight_logic import FlightLogic
+
 from data.data_wrapper import DataWrapper
 
 class LogicWrapper:
@@ -8,11 +11,13 @@ class LogicWrapper:
         self.employee_logic = EmployeeLogic()
         self.destination_logic = DestinationLogic()
         self.data_wrapper = DataWrapper()
+        self.voyage_logic = VoyageLogic() 
+        self.flight_logic = FlightLogic() 
 
     def add_employee(self, employee):
         '''Adds an employee to csv file'''
-        employee_result = self.employee_logic.add_employee(employee) 
-        return employee_result
+        employee_error_check = self.employee_logic.add_employee(employee) 
+        return employee_error_check
 
     def list_all_employees(self):
         '''Gets all employees from the csv file'''
