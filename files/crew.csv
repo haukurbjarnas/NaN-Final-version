@@ -1,11 +1,1 @@
-nid,name,ssn,role,rank,license,phone_nr,email,address
-01,Haukur Bjarnason,0601042470,Captain,Pilot,bleble,7704850,haukurbesti@gmail.com,Smyrilshlíð 11
-02,Óliver Karl Sandberg Birgisson,0911041234,Main attendant,Flight attendant,blabla,5812345,oliverkarlsandberg@gmail.com,Smyrilshlíð 3
-03,Helgi Edwald Einarsson,2506041234,Co-pilot,Pilot,baba,4570358,helgiee@gmail.com,Lynghagi 22
-04,Dúna Pálsdóttir,2611041234,Flight attendant,Flight attendant,böbö,4569893,duna.palsdottir@gmail.com,Miklabraut 66
-05,Jesus Christ,24120012345,Captain,Pilot,bebe,1,jesus@gospel.gov,Heaven 2
-06,Tyrion Lannister,2304123456,Main attendant,Flight attendant,bubu,2,theimp@lannister.com,King's Landing
-07,Anakin Skywalker,0202021314,Co-pilot,Pilot,no highground,3,thechosenone@counsil.co,Jedi counsil
-08,Peter Griffin,0407661234,Flight attendant,Flight attendant,bird is the word,1234567,pgriffin@brewery.org,Quohog09
-09,Soulja Boy,4,Pilot,Captain,bobbabobba,4,souljaboy@crankthat.com,Irrelevant Lane 4
-10,True,0601042470,Pilot,Captain,rassgatskerfisstjori,485034,bleble,rassgat
+nid,name,ssn,role,rank,phone_nr,email,address

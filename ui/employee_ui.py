@@ -47,10 +47,10 @@ class EmployeeUI:
             
         while True:
             name = input("Enter name: ")
-            try:
-                num = int(name)
-            except ValueError:
+            if all(x.isalpha() or x.isspace() for x in name):
                 break
+            else:
+                print("Invalid input!")
         
         while True:
             ssn = input("Enter social security number: ")
@@ -78,31 +78,25 @@ class EmployeeUI:
                     rank_choice = int(input("Select either option 1. or 2.: "))
                 except ValueError:
                     print("Please input the number associated with the rank")
-                    if rank_choice == 1:
-                        rank = "Captain"
-                        break
-                    elif rank_choice == 2:
-                        rank = "Co-Pilot"
-                        break
+                if rank_choice == 1:
+                    rank = "Captain"
+                    break
+                elif rank_choice == 2:
+                    rank = "Co-Pilot"
+                    break
             if role == "Flight attendant":
                 print(f"What role does {name} have as a {role}? 1. Main flight attendant or 2. Flight attendant")
                 try:
                     rank_choice = int(input("Select either option 1. or 2.: "))
                 except ValueError:
                     print("Please input the number associated with the rank")
-                    if rank_choice == 1:
-                        rank == "Main flight attendant"
-                        break
-                    elif rank_choice == 2:
-                        rank == "Flight attendant"
-                        break
+                if rank_choice == 1:
+                    rank == "Main flight attendant"
+                    break
+                elif rank_choice == 2:
+                    rank == "Flight attendant"
+                    break
 
-        while True:
-                    license = input("Enter licence: ")
-                    if license.isalnum():
-                        break
-                    else:
-                        print("Invalid input!")
 
         while True:
             phone = input("Enter phone number: ")
@@ -125,9 +119,12 @@ class EmployeeUI:
             else:
                 print("Invalid input!")
 
+        print(role)
+        print(rank)
+
     
 
-        employee = Crew(nid, name, ssn, role, rank, license, phone, email, address)
+        employee = Crew(nid, name, ssn, role, rank, phone, email, address)
         
         self.logic_wrapper.add_employee(employee)
 
@@ -142,7 +139,6 @@ class EmployeeUI:
             print(f"SSN: {elem.ssn}")
             print(f"Role: {elem.rank}")
             print(f"Rank: {elem.role}")
-            print(f"License: {elem.license}")
             print(f"Phone number: {elem.phone_nr}")
             print(f"e-Mail: {elem.email}")
             print(f"Address: {elem.address}")
@@ -182,10 +178,9 @@ class EmployeeUI:
         print("Select what you want to update: ")
         print("1. Role")
         print("2. Rank")
-        print("3. License")
-        print("4. Phone number")
-        print("5. E-Mail")
-        print("6. Address")
+        print("3. Phone number")
+        print("4. E-Mail")
+        print("5. Address")
 
         what_to_update = input("Select what you want to update: ")
 
@@ -197,15 +192,12 @@ class EmployeeUI:
                 update = "rank"
                 break
             elif what_to_update == "3":
-                update = "license"
-                break
-            elif what_to_update == "4":
                 update = "phone_nr"
                 break
-            elif what_to_update == "5":
+            elif what_to_update == "4":
                 update = "email"
                 break
-            elif what_to_update == "6":
+            elif what_to_update == "5":
                 update = "address"
                 break
             else:
