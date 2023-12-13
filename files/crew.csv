@@ -1,4 +1,8 @@
 nid,name,ssn,role,rank,phone_nr,email,address
+<<<<<<< Updated upstream
 1,Breki Gunnarsson Arndal,0308032480,Captain,Pilot,8234649,brekiga@gmail.com,Austurkór 98
 14,Jónas,030303030,fluffa,Flight attendant,9292929,lksaflk@fluffa.is,ljdsflkj 99
 33,fdggrfds,3242,dfg,Pilot,3232323,dfg,fdgdfg
+=======
+
+>>>>>>> Stashed changes

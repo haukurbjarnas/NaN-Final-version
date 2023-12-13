@@ -99,13 +99,20 @@ class EmployeeUI:
             else:
                 print("Invalid input!")
 
+<<<<<<< Updated upstream
     
 
+=======
+>>>>>>> Stashed changes
         employee = Crew(nid, name, ssn, role, rank, phone, email, address)
         
         self.logic_wrapper.add_employee(employee)
         print("Employee created succesfully!")
+<<<<<<< Updated upstream
         
+=======
+
+>>>>>>> Stashed changes
     def print_all_employees(self):
         
         result = self.logic_wrapper.list_all_employees()
