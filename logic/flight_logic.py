@@ -8,7 +8,7 @@ class FlightLogic:
     def add_flight(self, flight): 
         '''Adds a flight to the data base''' 
         flight_error_1 = 1 
-        flight_successful = 2
+        flight_successful = 0
        
         if self.flight_wrapper.get_flight_by_flight_number(flight.flight_number) != None: 
             return flight_error_1 

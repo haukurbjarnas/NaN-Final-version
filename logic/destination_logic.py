@@ -9,7 +9,7 @@ class DestinationLogic:
 
         destination_error_1 = 1 
         destination_error_2 = 2 
-        destination_successful = 3
+        destination_successful = 0
 
         if self.data_wrapper.get_destination_by_id(destination.destination_id) != None: 
             return destination_error_1 
