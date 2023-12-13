@@ -12,7 +12,7 @@ class EmployeeLogic:
         employee_error_2 = 2
         employee_error_3 = 3
         employee_error_4 = 4 
-        employee_successful = 5
+        employee_successful = 0
 
         if self.crew_wrapper.get_crew_member_by_id(employee.nid) != None:
             return employee_error_1  
