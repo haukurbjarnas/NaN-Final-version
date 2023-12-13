@@ -152,14 +152,14 @@ class EmployeeUI:
         
         a_list = self.logic_wrapper.list_all_pilots()
 
-        for elem in a_list:
-            print(elem)
+        for pilot in a_list:
+            print(f"Name: {pilot.name}, Rank: {pilot.rank}")
 
     def print_attendants(self):
         a_list = self.logic_wrapper.list_all_attendants()
 
-        for elem in a_list:
-            print(elem)
+        for attendant in a_list:
+            print(f"Name: {attendant.name}, Rank: {attendant.rank}")
 
     def update_employee(self):
         

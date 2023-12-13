@@ -45,3 +45,28 @@ class DestinationData:
                 break
 
         return ret
+    
+    def update_csv(self, row_index, column_name, new_value):
+        data = self.read_all_destinations()
+
+        if 0 <= row_index < len(data):
+            data[row_index].__dict__[column_name] = new_value
+            self.write_csv(data)
+            
+
+    def write_csv(self, data):
+        with open(self.file_name, 'w', newline='', encoding="utf-8") as csvfile:
+            fieldnames = ["numeric_id", "id", "country", "airport", "contact_name", "contact_number", "distance"]
+            writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+            
+            writer.writeheader()
+            for destination in data:
+                writer.writerow({
+                    "numeric_id": destination.numeric_id,
+                    "id": destination.id,
+                    "country": destination.country,
+                    "airport": destination.airport,
+                    "contact_name": destination.contact_name,
+                    "contact_number": destination.contact_number,
+                    "distance": destination.distance
+                })

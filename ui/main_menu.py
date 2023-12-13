@@ -11,6 +11,11 @@ class MainMenu:
     
     def menu_output(self):
         print("")
+        print(" __ _   __   __ _     __   __  ____ ") 
+        print("(  ( \ / _\ (  ( \   / _\ (  )(  _ \ ")
+        print("/    //    \/    /  /    \ )(  )   /")     
+        print("\_)__)\_/\_/\_)__)  \_/\_/(__)(__\_)")
+        print("")
         print("Main Menu - Welcome!")
         print("1. Employee management")
         print("2. Voyage management")

@@ -19,3 +19,9 @@ class VoyageLogic:
                 matching_list.append(elem)
 
         return matching_list
+    
+    def get_all_voyages(self):
+        return self.data_wrapper.read_add_voyages()
+    
+    def add_crew_voyage(self, line, column, update):
+        self.data_wrapper.add_crew_to_voyage(line, column, update)

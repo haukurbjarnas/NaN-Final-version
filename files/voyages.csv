@@ -1,1 +1,3 @@
-flight_nr,flight_nr_back,captain,copilot,fa1,fa2
+number_id,flight_nr,flight_nr_back,captain,copilot,fa1,fa2
+111,NA111,NA112,palli,,,
+222,FA222,FA212,,,,

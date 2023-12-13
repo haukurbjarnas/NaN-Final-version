@@ -10,3 +10,6 @@ class DestinationLogic:
 
     def get_all_destinations(self):
         return self.data_wrapper.read_all_destinations()
+    
+    def update_information_destination(self, line, column, update):
+        self.data_wrapper.update_destination(line, column, update)

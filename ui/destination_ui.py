@@ -10,7 +10,7 @@ class DestinationUI:
         print("Destination Menu")
         print("1. Create destination")
         print("2. List all destinations")
-
+        print("3. Update contact info for destination")
     def input_prompt(self):
         while True:
             self.destination_menu()
@@ -20,6 +20,8 @@ class DestinationUI:
                 self.create_destination()
             elif command == "2":
                 self.print_all_destinations()
+            elif command == "3":
+                self.update_contact_info_for_dest()
             elif command == "b":
                 return "b"
 
@@ -60,3 +62,43 @@ class DestinationUI:
             print(f"{dest.contact_name}'s number : {dest.contact_number}")
             print("-"*30)
             print("")
+
+
+    def update_contact_info_for_dest(self):
+        all_destinations = self.logic_wrapper.get_all_destinations()
+
+        num = 1
+
+        for destination in all_destinations:
+            print(f"{num}. {destination.id}")
+            num += 1
+
+        while True:
+            name_of = input("Select the number of the destination to change: ")
+            if name_of.isdigit():
+                break
+            else:
+                print("Invalid input!")
+            
+        print("Select what you want to update: ")
+        print("1. Contact name")
+        print("2. Contact number")
+    
+
+        what_to_update = input("Select what you want to update: ")
+
+        while True:
+            if what_to_update == "1":
+                update = "contact_name"
+                break
+            elif what_to_update == "2":
+                update = "contact_number"
+                break
+            else:
+                print("Invalid input!")
+
+        new_info = input("Enter new info: ")
+
+        self.logic_wrapper.new_information_destination(int(name_of)-1, update, new_info)
+
+        print("Update successful...")

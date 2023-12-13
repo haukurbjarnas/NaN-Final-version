@@ -45,5 +45,13 @@ class LogicWrapper:
         return self.flight_logic.get_all_flight()
     
     def get_matching_flights(self, flight):
-        self.voyage_logic.connected_flights(flight)
         return self.voyage_logic.connected_flights(flight)
+    
+    def get_all_voyages(self):
+        return self.voyage_logic.get_all_voyages()
+    
+    def new_information_destination(self, line, column, update):
+        self.destination_logic.update_information_destination(line, column, update)
+
+    def add_crew_to_voyage(self, line, column, update):
+        self.voyage_logic.add_crew_voyage(line, column, update)
