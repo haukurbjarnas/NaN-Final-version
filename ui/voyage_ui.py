@@ -13,6 +13,7 @@ class VoyageUI:
         print("1. Create voyage")
         print("2. List all voyages")
         print("3. Add crew to voyage")
+        print("Enter (B)ack to go back")
         print("")
         print("-"*30)
     
@@ -62,13 +63,34 @@ class VoyageUI:
         assign_pilots = assign_pilots.lower()
         if assign_pilots == "y":
             
-            self.employee_ui.print_pilots()
+            all_pilots = self.logic_wrapper.list_all_pilots()
+
+            '''Select a captain'''
+            num = 1
+            for pilot in all_pilots:
+                if pilot.role == "Captain":
+                    print(f"{num}. {pilot}")
+                    num += 1
+
+            captain_choice = input("Select a pilot: ")
+
+            '''Select a co-pilot'''
+            for pilot in all_pilots:
+                if pilot.role == "Co-Pilot":
+                    print(f"{num}. {pilot}")
+                    num += 1
+
 
         assign_attendants = input("Do you want to assign flight attendants now? (Y)es (N)o: ")
         assign_attendants = assign_attendants.lower()
         if assign_attendants == "y":
             
-            self.employee_ui.print_attendants()
+            all_attendants = self.logic_wrapper.list_all_attendants()
+
+            num = 1
+            for attendant in all_attendants:
+                print(f"{num}. {attendant}")
+                num += 1
 
 
     def print_all_voyages(self):
