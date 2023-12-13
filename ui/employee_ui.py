@@ -94,7 +94,7 @@ class EmployeeUI:
                     rank == "Main flight attendant"
                     break
                 elif rank_choice == 2:
-                    rank == "Flight attendant"
+                    rank == "Normal flight attendant"
                     break
 
 
@@ -118,9 +118,6 @@ class EmployeeUI:
                 break
             else:
                 print("Invalid input!")
-
-        print(role)
-        print(rank)
 
     
 
