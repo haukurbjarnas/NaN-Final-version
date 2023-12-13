@@ -121,6 +121,11 @@ class EmployeeUI:
             else:
                 print("Invalid input!")
 
+        print(role)
+        print(rank)
+
+    
+
         employee = Crew(nid, name, ssn, role, rank, phone, email, address)
         
         self.logic_wrapper.add_employee(employee)
