@@ -11,11 +11,10 @@ class FlightLogic:
         flight_successful = 0
        
         if self.flight_wrapper.get_flight_by_flight_number(flight.flight_number) != None: 
-            return flight_error_1 
+            raise ValueError("A flight with this flight number already exists.")
         
-        else: 
-            self.flight_wrapper.create_flight(flight)
-            return flight_successful
+        self.flight_wrapper.create_flight(flight)
+            
 
     def get_all_flights(self): 
         return self.flight_wrapper.read_all_flights() 

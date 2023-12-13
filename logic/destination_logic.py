@@ -7,20 +7,26 @@ class DestinationLogic:
 
     def add_destination(self, destination): 
 
-        destination_error_1 = 1 
-        destination_error_2 = 2 
-        destination_successful = 0
+        if self.data_wrapper.get_destination_by_id(destination.id) is not None:
+            raise ValueError("A destination with this ID already exists.")
 
-        if self.data_wrapper.get_destination_by_id(destination.destination_id) != None: 
-            return destination_error_1 
-        
-        elif self.data_wrapper.get_destination_by_numeric_id(destination.numeric_id) != None: 
-            return destination_error_2 
-        
-        else:
-            self.data_wrapper.create_destination(destination) 
-            return destination_successful
+        if self.data_wrapper.get_destination_by_numericid(destination.numeric_id) is not None: 
+            raise ValueError("A destination with this numeric ID already exists.")
 
+        if self.data_wrapper.get_destination_by_airport(destination.airport) is not None: 
+            raise ValueError("A destination with this airport already exists.")
+
+        self.data_wrapper.create_destination(destination)
 
     def get_all_destinations(self):
-        return self.data_wrapper.read_all_destinations()
+        return self.data_wrapper.read_all_destinations() 
+    
+    def update_information_destination(self, line, column, update): 
+        self.data_wrapper.update_destination(line, column, update) 
+
+    def get_destination_by_id(self, id): 
+        return self.data_wrapper.get_destination_by_id(id) 
+
+        
+
+

@@ -16,8 +16,22 @@ class LogicWrapper:
 
     def add_employee(self, employee):
         '''Adds an employee to csv file'''
-        employee_error_check = self.employee_logic.add_employee(employee) 
-        return employee_error_check
+        try:
+            self.employee_logic.add_employee(employee)
+ 
+            return {"status": "success"}
+        except ValueError as e:
+            error_message = str(e)
+            if error_message == "Duplicate ID":
+                return {"status": "error", "code": "DUPLICATE_ID"}
+            elif error_message == "Duplicate Email":
+                return {"status": "error", "code": "DUPLICATE_EMAIL"}
+            elif error_message == "Duplicate Phone Number":
+                return {"status": "error", "code": "DUPLICATE_PHONE"}
+            elif error_message == "Duplicate SSN":
+                return {"status": "error", "code": "DUPLICATE_SSN"}
+            else:
+                return {"status": "error", "code": "UNKNOWN_ERROR"}
 
     def list_all_employees(self):
         '''Gets all employees from the csv file'''
