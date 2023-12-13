@@ -55,3 +55,6 @@ class LogicWrapper:
 
     def add_crew_to_voyage(self, line, column, update):
         self.voyage_logic.add_crew_voyage(line, column, update)
+
+    def create_a_voyage(self, voyage):
+        self.voyage_logic.create_voyage(voyage)

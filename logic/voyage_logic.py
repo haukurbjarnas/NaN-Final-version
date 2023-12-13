@@ -25,3 +25,6 @@ class VoyageLogic:
     
     def add_crew_voyage(self, line, column, update):
         self.data_wrapper.add_crew_to_voyage(line, column, update)
+
+    def create_voyage(self, voyage):
+        self.data_wrapper.create_voyage(voyage)

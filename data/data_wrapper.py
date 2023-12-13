@@ -40,3 +40,6 @@ class DataWrapper:
 
     def add_crew_to_voyage(self, line, coulmn, update):
         self.voyage_data.update_csv(line, coulmn, update)
+    
+    def create_voyage(self, voyage):
+        self.voyage_data.create_voyage(voyage)
