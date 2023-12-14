@@ -1,5 +1,5 @@
 class Crew:
-    def __init__(self, nid, name, ssn, role, rank, phone_nr, email, address):
+    def __init__(self, nid, name, ssn, role, rank, phone_nr, email, address, home_phone):
         self.nid = nid
         self.name = name
         self.ssn = ssn
@@ -8,6 +8,7 @@ class Crew:
         self.phone_nr = phone_nr
         self.email = email
         self.address = address
+        self.home_phone = home_phone
         
 
 

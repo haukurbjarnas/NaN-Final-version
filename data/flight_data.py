@@ -21,6 +21,7 @@ class FlightData:
                     row["dep_from"],
                     row["arr_at"],
                     row["departure_time"],
+                    row["dep_clock"],
                     row["arrival_time"],
                 ))
         return ret_list
@@ -28,13 +29,14 @@ class FlightData:
     def create_flight(self, flight):
         '''Creates a flight and writes it to the flights csv file'''
         with open(self.file_name, 'a', newline='', encoding="utf-8") as csvfile:
-            fieldnames = ["flight_nr", "dep_from", "arr_at", "departure_time", "arrival_time"]
+            fieldnames = ["flight_nr", "dep_from", "arr_at", "departure_time","dep_clock", "arrival_time"]
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
             writer.writerow({
                 'flight_nr' : flight.flight_nr,
                 'dep_from': flight.dep_from,
                 'arr_at': flight.arr_at,
                 'departure_time': flight.departure_time,
+                'dep_clock' : flight.dep_clock,
                 'arrival_time': flight.arrival_time
             })
 

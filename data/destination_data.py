@@ -17,14 +17,15 @@ class DestinationData:
                     row["airport"],
                     row["contact_name"],
                     row["contact_number"],
-                    row["distance"]
+                    row["distance"],
+                    row["time_from_ice"]
                 ))
         return ret_list
     
     def create_destination(self, destination):
 
         with open(self.file_name, "a", newline="", encoding="utf-8") as csvfile:
-            fieldnames = ["numeric_id", "id", "country", "airport", "contact_name", "contact_number", "distance"]
+            fieldnames = ["numeric_id", "id", "country", "airport", "contact_name", "contact_number", "distance", "time_from_ice"]
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
             writer.writerow({
                 "numeric_id": destination.numeric_id,
@@ -33,7 +34,8 @@ class DestinationData:
                 "airport": destination.airport,
                 "contact_name": destination.contact_name,
                 "contact_number": destination.contact_number,
-                "distance": destination.distance
+                "distance": destination.distance,
+                "time_from_ice" : destination.time_from_ice
             })
 
     def get_destination_by_id(self, theID):
@@ -56,7 +58,7 @@ class DestinationData:
 
     def write_csv(self, data):
         with open(self.file_name, 'w', newline='', encoding="utf-8") as csvfile:
-            fieldnames = ["numeric_id", "id", "country", "airport", "contact_name", "contact_number", "distance"]
+            fieldnames = ["numeric_id", "id", "country", "airport", "contact_name", "contact_number", "distance", "time_from_ice"]
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
             
             writer.writeheader()
@@ -68,7 +70,8 @@ class DestinationData:
                     "airport": destination.airport,
                     "contact_name": destination.contact_name,
                     "contact_number": destination.contact_number,
-                    "distance": destination.distance
+                    "distance": destination.distance,
+                    "time_from_ice" : destination.time_from_ice
                 })
 
     def count_lines_in_csv(self):

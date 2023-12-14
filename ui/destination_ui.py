@@ -31,12 +31,12 @@ class DestinationUI:
         numeric_id = self.logic_wrapper.get_lines_destinations()
 
         while True:
-            airport_code = input("Enter Airport abbreviation: ")
-            if airport_code.isalpha() and len(airport_code) == 3:
+            airport_coder = input("Enter Airport abbreviation: ")
+            if airport_coder.isalpha() and len(airport_coder) == 3:
                 break
             else:
                 print("Invalid input!")
-            airport_code = airport_code.upper()
+        airport_code = airport_coder.upper()
 
         while True:
             country = input("Enter the country of the destination: ")
@@ -68,7 +68,14 @@ class DestinationUI:
             except ValueError:
                 print("Invalid input!")
 
-        destination = Destination(numeric_id, airport_code, country, airport_name, contact_name, contact_number, distance)
+        while True:
+            try:
+                time_from_ice = int(input(f"Enter time in whole hours to {airport_name}: "))
+                break
+            except ValueError:
+                print("Invalid input!")
+
+        destination = Destination(numeric_id, airport_code, country, airport_name, contact_name, contact_number, distance, time_from_ice)
         self.logic_wrapper.get_destination(destination)
         print("Destination added succesfully!")
 
@@ -84,6 +91,7 @@ class DestinationUI:
             print(f"Country: {dest.country}")
             print(f"Airport: {dest.airport}")
             print(f"Distance to {dest.airport}: {dest.distance}")
+            print(f"Time in whole hours to {dest.airport} from Iceland: {dest.time_from_ice}")
             print(f"Name of emergency contact: {dest.contact_name}")
             print(f"{dest.contact_name}'s number : {dest.contact_number}")
             print("-"*30)

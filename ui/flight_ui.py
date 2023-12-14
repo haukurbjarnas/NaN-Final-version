@@ -62,11 +62,11 @@ class FlightUI:
 
         arr_at = location_list[int(select_place_of_arrival) - 1]
 
-        departure_time = input("Enter date and time of departure (YYYY M D): ")
+        departure_time = input("Enter date of departure (YYYY M D): ")
+        dep_clock = input("Enter the time of departure (HH:MM): ") 
+        arrival_time = input("Enter date of arrival (YYYY M D): ")
 
-        arrival_time = input("Enter date and time of arrival (YYYY M D): ")
-
-        flight = Flight(flight_nr, dep_from, arr_at, departure_time, arrival_time)
+        flight = Flight(flight_nr, dep_from, arr_at, departure_time, dep_clock, arrival_time)
 
         self.logic_wrapper.make_flight(flight)
 
@@ -82,7 +82,7 @@ class FlightUI:
             print(f"Flight number: {elem.flight_nr}")
             print(f"Departure from: {elem.dep_from}")
             print(f"Arrival at: {elem.arr_at}")
-            print(f"Time of departure from {elem.dep_from}: {elem.departure_time}")
-            print(f"Time of arrival at {elem.arr_at}: {elem.arrival_time}")
+            print(f"Date and time of departure from {elem.dep_from} (YYYY MM DD HH MM): {elem.departure_time} {elem.dep_clock}")
+            print(f"Date of arrival at {elem.arr_at}: {elem.arrival_time}")
             print("-"*30)
             print("")

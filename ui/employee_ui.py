@@ -117,9 +117,17 @@ class EmployeeUI:
             else:
                 print("Invalid input!")
 
-        employee = Crew(nid, name, ssn, role, rank, phone, email, address)
+        while True:
+            home_phone = input("Enter home phone number (optional): ")
+            if home_phone.isdigit() or home_phone == "":
+                break
+            else:
+                print("Invalid input!")
+
+        employee = Crew(nid, name, ssn, role, rank, phone, email, address, home_phone)
         
         self.logic_wrapper.add_employee(employee)
+
         print("Employee created successfully!")
 
     def print_all_employees(self):
@@ -136,6 +144,7 @@ class EmployeeUI:
             print(f"Phone number: {elem.phone_nr}")
             print(f"e-Mail: {elem.email}")
             print(f"Address: {elem.address}")
+            print(f"Home phone number: {elem.home_phone}")
             print("-"*40)
             print("")
 
@@ -176,6 +185,7 @@ class EmployeeUI:
         print("3. Phone number")
         print("4. E-Mail")
         print("5. Address")
+        print("6. Home phone number")
 
         what_to_update = input("Select what you want to update: ")
 
@@ -194,6 +204,9 @@ class EmployeeUI:
                 break
             elif what_to_update == "5":
                 update = "address"
+                break
+            elif what_to_update == "6":
+                update = "home_phone"
                 break
             else:
                 print("Invalid input!")

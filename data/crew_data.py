@@ -19,13 +19,14 @@ class CrewData:
                     row["rank"],
                     row["phone_nr"],
                     row["email"],
-                    row["address"]
+                    row["address"],
+                    row["home_phone"]
                 ))
         return ret_list
 
     def create_crew_member(self, crew):
         with open(self.file_name, 'a', newline='', encoding="utf-8") as csvfile:
-            fieldnames = ["nid", "name", "ssn", "role", "rank", "phone_nr", "email", "address"]
+            fieldnames = ["nid", "name", "ssn", "role", "rank", "phone_nr", "email", "address", "home_phone"]
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
             writer.writerow({
                 'nid': crew.nid,
@@ -35,7 +36,8 @@ class CrewData:
                 'rank': crew.rank,
                 'phone_nr': crew.phone_nr,
                 'email': crew.email,
-                'address': crew.address
+                'address': crew.address,
+                'home_phone' : crew.home_phone
             })
 
     def get_crew_member_by_id(self, theID):
@@ -57,7 +59,7 @@ class CrewData:
 
     def write_csv(self, data):
         with open(self.file_name, 'w', newline='', encoding="utf-8") as csvfile:
-            fieldnames = ["nid", "name", "ssn", "role", "rank", "phone_nr", "email", "address"]
+            fieldnames = ["nid", "name", "ssn", "role", "rank", "phone_nr", "email", "address", "home_phone"]
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
             
             writer.writeheader()
@@ -70,7 +72,8 @@ class CrewData:
                     'rank': crew.rank,
                     'phone_nr': crew.phone_nr,
                     'email': crew.email,
-                    'address': crew.address
+                    'address': crew.address,
+                    'home_phone' : crew.home_phone
                 })
 
     def count_lines_in_csv(self):
