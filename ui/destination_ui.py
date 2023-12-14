@@ -11,6 +11,7 @@ class DestinationUI:
         print("1. Create destination")
         print("2. List all destinations")
         print("3. Update contact info for destination")
+        print("Enter (B)ack to go back")
     def input_prompt(self):
         while True:
             self.destination_menu()
@@ -27,24 +28,53 @@ class DestinationUI:
 
 
     def create_destination(self):
+        while True:
+            numeric_id = input("Enter numeric ID: ")
+            if numeric_id.isdigit():
+                break
+            else:
+                print("Invalid input!")
 
-        numeric_id = input("Enter numeric ID (under development): ")
+        while True:
+            airport_code = input("Enter Airport abbreviation: ")
+            if airport_code.isalpha() and len(airport_code) == 3:
+                break
+            else:
+                print("Invalid input!")
 
-        id = input("Enter destination ID (under development): ")
-        
-        country = input("Enter name of destination (country): ")
+        while True:
+            country = input("Enter the country of the destination: ")
+            if all(x.isalpha() or x.isspace() for x in country):
+                break
+            else:
+                print("Invalid input!")
 
-        airport = input("Enter name of airport: ")
+        while True:
+            airport_name = input("Enter name of the airport: ")
+            if all(x.isalpha() or x.isspace() for x in airport_name):
+                break
+            else:
+                print("Invalid input!")
 
-        contact_name = input("Enter name of contact: ")
+        contact_name = input("Enter a contact name for the destination: ")
 
-        contact_number = input(f"Enter {contact_name}'s contact: ")
+        while True:
+            contact_number = input(f"Enter {contact_name}'s contact phone number: ")
+            if contact_number.isdigit() and 0 < len(contact_number) <= 10:
+                break
+            else:
+                print("Invalid input!")
 
-        distance = input(f"Enter distance to {airport}: ")
+        while True:
+            try:
+                distance = int(input(f"Enter distance to {airport_name} in Km: "))
+                break
+            except ValueError:
+                print("Invalid input!")
 
-        destination = Destination(numeric_id, id, country, airport, contact_name, contact_number, distance)
-
+        destination = Destination(numeric_id, airport_code, country, airport_name, contact_name, contact_number, distance)
         self.logic_wrapper.get_destination(destination)
+        print("Destination added succesfully!")
 
     def print_all_destinations(self):
         
@@ -75,7 +105,7 @@ class DestinationUI:
 
         while True:
             name_of = input("Select the number of the destination to change: ")
-            if name_of.isdigit():
+            if name_of.isdigit() and 0 < int(name_of) <num:
                 break
             else:
                 print("Invalid input!")
@@ -97,7 +127,12 @@ class DestinationUI:
             else:
                 print("Invalid input!")
 
-        new_info = input("Enter new info: ")
+        while True:
+            new_info = input("Enter new info: ")
+            if all(x.isalnum() or x.isspace() for x in new_info):
+                break
+            else:
+                print("Invalid input!")
 
         self.logic_wrapper.new_information_destination(int(name_of)-1, update, new_info)
 

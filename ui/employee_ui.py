@@ -121,11 +121,6 @@ class EmployeeUI:
             else:
                 print("Invalid input!")
 
-        print(role)
-        print(rank)
-
-    
-
         employee = Crew(nid, name, ssn, role, rank, phone, email, address)
         
         self.logic_wrapper.add_employee(employee)
@@ -136,7 +131,7 @@ class EmployeeUI:
         result = self.logic_wrapper.list_all_employees()
         for elem in result:
             print("")
-            print("-"*30)
+            print("-"*40)
             print(f"Number ID: {elem.nid}")
             print(f"Name: {elem.name}")
             print(f"SSN: {elem.ssn}")
@@ -145,35 +140,36 @@ class EmployeeUI:
             print(f"Phone number: {elem.phone_nr}")
             print(f"e-Mail: {elem.email}")
             print(f"Address: {elem.address}")
-            print("-"*30)
+            print("-"*40)
             print("")
 
     def print_pilots(self):
-        
+        print("-"*40)
         a_list = self.logic_wrapper.list_all_pilots()
 
         for pilot in a_list:
             print(f"Name: {pilot.name}, Rank: {pilot.rank}")
-
+        print("-"*40)
     def print_attendants(self):
+        print("-"*40)
         a_list = self.logic_wrapper.list_all_attendants()
 
         for attendant in a_list:
             print(f"Name: {attendant.name}, Rank: {attendant.rank}")
-
+        print("-"*40)
     def update_employee(self):
         
         all_employees = self.logic_wrapper.list_all_employees()
 
         num = 1
-
+        print("-"*40)
         for full_name in all_employees:
             print(f"{num}. {full_name.name}")
             num += 1
-
+        print("-"*40)
         while True:
-            name_of = input("Select an employee: ")
-            if name_of.isdigit():
+            name_of = (input("Select an employee: "))
+            if name_of.isdigit() and 0 < int(name_of) <num:
                 break
             else:
                 print("Invalid input!")
@@ -206,7 +202,12 @@ class EmployeeUI:
             else:
                 print("Invalid input!")
 
-        new_info = input("Enter new info: ")
+        while True:
+            new_info = input("Enter new info: ")
+            if all(x.isascii() or x.isspace() for x in new_info):
+                break
+            else:
+                print("Invalid input!")
 
         self.logic_wrapper.new_information_employee(int(name_of)-1, update, new_info)
 

@@ -4,4 +4,10 @@ nid,name,ssn,role,rank,phone_nr,email,address
 3,Dúna Pálsdóttir,2611041234,Flight attendant,Main flight attendant,5525522,dunsipunsi,Hringbraut 66
 4,Óliver Karl Sandberg Birgisson,0911041234,Flight attendant,Normal Flight attendant,112,kengerinn,Smyrilshlíð 3
 5,Breki Arndal,03,Pilot,Captain,2425236,geggjadur,Örg kópavegur eða eh
-45,Osama Bin Laden,222222222,Pilot,Captain,4206936068,a_hoax@im_alive.com,Abbodabad
+6,Osama Bin Laden,222222222,Pilot,Captain,4206936068,a_hoax@im_alive.com,Abbodabad
+7,Yoda,1304764333,Flight attendant,Main flight attendant,9998877,yoda@starwars.com,earth 43
+8,Bart Simpsson,667788991010,Pilot,Captain,757575757,bart@homersemail.com,simpssonsstreet 5
+9,Ned Flanders,8899379898,Pilot,Co-Pilot,88877738,ned@flanders.org,simpssonssstreet 6
+10,Homer Simpsson,99938383,Flight attendant,Normal Flight attendant,98283838,homer@simpson.gov,simpssonsstreet 5
+11,Lisa Simpson,98734050,Flight attendant,Normal Flight attendant,58585888,Lisa@iamsmarter.net,simspnsstreet 5
+12,Rósa Kristjánssdóttir,0300400020,Pilot,Co-Pilot,84848999,rosa@gmail.com,roðasalir 4

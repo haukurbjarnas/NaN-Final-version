@@ -27,8 +27,12 @@ class FlightUI:
             
 
     def create_flight(self):
-
-        flight_nr = input("Enter flight number")
+        while True:
+            flight_nr = input("Enter flight number: ")
+            if flight_nr:
+                break
+            else:
+                print("Invalid input!")
 
         list_of_destinations = self.logic_wrapper.get_all_destinations()
 
@@ -40,18 +44,28 @@ class FlightUI:
             location_list.append(elem.airport)
             num += 1
 
-        selec_place_of_departure = input("Please select place of departure: ")
-        
-        dep_from = location_list[int(selec_place_of_departure)-1]
+        while True:
+            selec_place_of_departure = input("Please select place of departure: ")
+            if selec_place_of_departure.isdigit() and 1 <= int(selec_place_of_departure) <= len(location_list):
+                break
+            else:
+                print("Invalid input!")
+
+        dep_from = location_list[int(selec_place_of_departure) - 1]
 
         num = 1
         for elem in list_of_destinations:
             print(f"{num}. Country: {elem.country} Airport: {elem.airport}")
             num += 1
 
-        select_place_of_arrival = input("Please select place of arrival: ")
+        while True:
+            select_place_of_arrival = input("Please select place of arrival: ")
+            if select_place_of_arrival.isdigit() and 1 <= int(select_place_of_arrival) <= len(location_list):
+                break
+            else:
+                print("Invalid input!")
 
-        arr_at = location_list[int(select_place_of_arrival)-1]
+        arr_at = location_list[int(select_place_of_arrival) - 1]
 
         departure_time = input("Enter date and time of departure (DD-MM-YY 00:00): ")
 
@@ -60,6 +74,7 @@ class FlightUI:
         flight = Flight(flight_nr, dep_from, arr_at, departure_time, arrival_time)
 
         self.logic_wrapper.make_flight(flight)
+
 
     def print_all_flights(self):
         

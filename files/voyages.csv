@@ -3,3 +3,5 @@ number_id,flight_nr,flight_nr_back,captain,copilot,fa1,fa2
 420,STH01,KEF01,Haukur Bjarnason,Helgi Edwald,,Dúna Pálsdóttir
 769,KEF01,STH01,Haukur Bjarnason,Helgi Edwald,Óliver Karl Sandberg Birgisson,Óliver Karl Sandberg Birgisson
 25135135,STH01,KEF01,Osama Bin Laden,Helgi Edwald,Dúna Pálsdóttir,
+1333,GA999,Ga1222,Bart Simpsson,Rósa Kristjánssdóttir,Lisa Simpson,Yoda
+1223,FO12222,FO12223,Osama Bin Laden,Ned Flanders,Yoda,Homer Simpsson

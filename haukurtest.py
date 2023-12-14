@@ -61,7 +61,7 @@ class RassgatOgRofa:
         
         flight_nr_choice_two = int(input("Select the second flight: "))
         flight_nr_two = flight_number_two_list[flight_nr_choice_two-1]
-        voyage = Voyage(number_id,flight_nr,flight_nr_two)
+        voyage = Voyage(num)
         wants = input("you want to add crew now?(Y)/(N)")
         if wants.lower() == "y":
             self.add_crew_to_voyage()

@@ -13,6 +13,7 @@ class VoyageUI:
         print("1. Create voyage")
         print("2. List all voyages")
         print("3. Add crew to voyage")
+        print("Enter (B)ack to go back")
         print("")
         print("-"*30)
     
@@ -61,7 +62,7 @@ class VoyageUI:
         
         flight_nr_choice_two = int(input("Select the second flight: "))
         flight_nr_two = flight_number_two_list[flight_nr_choice_two-1]
-        wants = input("you want to add crew(Y)/(N): ")
+        wants = input("you want to add crew now?(Y)/(N): ")
         if wants.lower() == "y":
                 all_pilots = self.logic_wrapper.list_all_pilots()
                 num = 1
@@ -107,14 +108,16 @@ class VoyageUI:
                     flight_attendants_list.append(elem.name)
                     num4 += 1
 
-                main_choice_two = int(input("Select flight attendant: "))
+                main_choice_two = int(input("Select a second flight attendant: "))
 
                 fa2 = flight_attendants_list[main_choice_two-1]
                 voyage = Voyage(number_id, flight_nr, flight_nr_two, captain, copilot, fa1, fa2)
                 self.logic_wrapper.create_a_voyage(voyage)
+                print("Voyage succesfully created with crew!")
         else:
             voyage = Voyage(number_id,flight_nr,flight_nr_two, "", "", "", "")
             self.logic_wrapper.create_a_voyage(voyage)
+            print("Voyage successfully created without crew!")
 
 
 
@@ -125,24 +128,18 @@ class VoyageUI:
     def add_crew_to_voyage(self):
         all_voyages = self.logic_wrapper.get_all_voyages()
         num = 1
-        voyage_nr_ids = []
+        
         for voyage in all_voyages:
             print(f"{num}. Voyage id: {voyage.number_id}")
             num += 1
 
         while True:
             name_of = input("Select voyage: ")
-            if name_of.isdigit():
+            if name_of.isdigit() and 0 < int(name_of) <num:
                 break
             else:
                 print("Invalid input!")
-        # for voyage in all_voyages:
-        #     print(f"{num}. Voyage ID: {voyage.number_id}")
-        #     # voyage_nr_ids.append(voyage.number_id)
-        #     num +=1
-
-        # what_voyage = int(input("for what voyage do you want to add crew"))
-        # number_id_of_voyage_to_change = all_voyages[what_voyage-1]
+        
         print("Select wich crew member you want to add to the voyage: ")
         print("1. Captain")
         print("2. Copilot")
@@ -164,10 +161,12 @@ class VoyageUI:
                         captain_list.append(elem.name)
                         num += 1
 
-               
-
-                captain_choice = int(input("Select a captain: "))
-
+                while True:
+                    captain_choice = input("Select a captain: ")
+                    if captain_choice.isdigit() and 0 < int(captain_choice) <num:
+                        break
+                    else:
+                        print("Invalid input!")
                 new_info = captain_list[captain_choice-1]
              
                 break
