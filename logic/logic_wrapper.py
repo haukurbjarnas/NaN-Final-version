@@ -2,6 +2,7 @@ from logic.employee_logic import EmployeeLogic
 from logic.destination_logic import DestinationLogic
 from logic.flight_logic import FlightLogic
 from logic.voyage_logic import VoyageLogic
+from logic.schedule_logic import SchedulesLogic
 from data.data_wrapper import DataWrapper
 
 class LogicWrapper:
@@ -12,6 +13,7 @@ class LogicWrapper:
         self.data_wrapper = DataWrapper()
         self.flight_logic = FlightLogic()
         self.voyage_logic = VoyageLogic()
+        self.schedules_logic = SchedulesLogic()
 
     def add_employee(self, employee):
         '''Adds an employee to csv file'''
@@ -58,3 +60,9 @@ class LogicWrapper:
 
     def create_a_voyage(self, voyage):
         self.voyage_logic.create_voyage(voyage)
+
+    def week_start_to_end(self, year, month, day):
+        return self.schedules_logic.weekly_period(year, month, day)
+
+    def send_employee_schedule(self, name, start, end):
+        return self.schedules_logic.check_employee_period(name, start, end)

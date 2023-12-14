@@ -1,3 +1,5 @@
 flight_nr,dep_from,arr_at,departure_time,arrival_time
-STH01,Keflavík Airport,Stockholm Arlanda,06-01-24,12-01-24 13:15
-KEF01,Stockholm Arlanda,Keflavík Airport,13-01-24 09:15,14-01-24 08:30
+01,Keflavík Airport,Stockholm Arlanda,2023 01 06,2023 01 06
+02,Stockholm Arlanda,Keflavík Airport,2023 01 07,2023 01 07
+03,Keflavík Airport,JFK Airport,2023 01 06,2023 01 07
+04,JFK Airport,Keflavík Airport,2023 01 09,2023 01 09

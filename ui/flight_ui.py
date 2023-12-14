@@ -53,9 +53,9 @@ class FlightUI:
 
         arr_at = location_list[int(select_place_of_arrival)-1]
 
-        departure_time = input("Enter date and time of departure (DD-MM-YY 00:00): ")
+        departure_time = input("Enter date of departure (YYYY MM DD): ")
 
-        arrival_time = input("Enter date and time of arrival (DD-MM-YY 00:00): ")
+        arrival_time = input("Enter date of arrival (YYYY MM DD): ")
 
         flight = Flight(flight_nr, dep_from, arr_at, departure_time, arrival_time)
 

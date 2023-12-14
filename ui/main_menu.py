@@ -3,6 +3,7 @@ from ui.employee_ui import EmployeeUI
 from ui.voyage_ui import VoyageUI
 from ui.destination_ui import DestinationUI
 from ui.flight_ui import FlightUI
+from ui.schedules_ui import SchedulesUI
 
 class MainMenu:
 
@@ -53,6 +54,9 @@ class MainMenu:
                 if back == "q":
                     return "q"
             elif command == "5":
-                pass
+                menu = SchedulesUI()
+                back = menu.input_prompt()
+                if back == "q":
+                    return "q"
             else:
                 print("Invalid input!")
