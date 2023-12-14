@@ -16,6 +16,10 @@ class VoyageUI:
         print("1. Create voyage")
         print("2. List all voyages")
         print("3. Add crew to voyage")
+        print("4. List fully staffed voyages")
+        print("5. List understaffed voyages")
+        print("6. Check voyages by week")
+        print("7. Check voyages by day")
         print("Enter (B)ack to go back")
         print("")
         print("-"*30)
@@ -37,6 +41,18 @@ class VoyageUI:
             elif command == "3":
                 print("")
                 self.add_crew_to_voyage()
+            elif command == "4":
+                print("")
+                self.fully_staffed_voyages() 
+            elif command == "5":
+                print("")
+                self.understaffed_voyages()
+            elif command == "6":
+                print("")
+                self.check_voyage_per_week()
+            elif command == "7":
+                print("")
+                self.check_voyage_per_day()
             elif command == "b":
                 print("")
                 return "b"
@@ -48,6 +64,7 @@ class VoyageUI:
         all_flights = self.logic_wrapper.get_all_flights()
         num = 1
         flight_number_list = []
+        
         for flight in all_flights:
             print(f"{num}. Flight number: {flight.flight_nr} from {flight.dep_from} to {flight.arr_at} Date: {flight.departure_time}")
             num += 1
@@ -61,7 +78,7 @@ class VoyageUI:
                 print("Invalid input!")
         flight_nr = flight_number_list[int(flight_nr_choice)-1]
         num2 = 1
-        flight_number_two_list = []
+
 
         flight_one = all_flights[int(flight_nr_choice)-1]
 
@@ -145,8 +162,11 @@ class VoyageUI:
 
 
     def print_all_voyages(self):
+
+        all_voyages = self.logic_wrapper.get_all_voyages()
         
-            pass
+        for voyage in all_voyages:
+            print(f"Voyage {voyage.number_id}: Captain: {voyage.captain} Co-Pilot: {voyage.copilot} Flight attendant 1: {voyage.fa1} Flight attendant 2: {voyage.fa2}")
 
     def add_crew_to_voyage(self):
         all_voyages = self.logic_wrapper.get_all_voyages()
@@ -241,3 +261,57 @@ class VoyageUI:
         self.logic_wrapper.add_crew_to_voyage(int(name_of)-1, update, new_info)
 
         print("Crew member added succesfully!")
+
+    def fully_staffed_voyages(self):
+        
+        staffed = self.logic_wrapper.send_fully_staffed_voyages()
+        print("Fully staffed voyages")
+        print("-"*40)
+        for voyage in staffed:
+            print(f"Voyage {voyage.number_id}: Captain: {voyage.captain} Co-Pilot: {voyage.copilot} Flight attendant 1: {voyage.fa1} Flight attendant 2: {voyage.fa2}")
+
+    def understaffed_voyages(self):
+        
+        understaffed = self.logic_wrapper.send_understaffed_voyages()
+        print("Understaffed voyages")
+        print("-"*40)
+        for voyage in understaffed:
+            print(f"Voyage {voyage.number_id}: Captain: {voyage.captain} Co-Pilot: {voyage.copilot} Flight attendant 1: {voyage.fa1} Flight attendant 2: {voyage.fa2}")
+
+    def check_voyage_per_week(self):
+
+        period = input("do not pad with 0 in month and day and seperate with space\nEnter start of weekly period to check (YYYY-M-D): ")
+
+        weekly_voyages = self.logic_wrapper.check_by_week(period)
+
+        for voyage in weekly_voyages:
+            if voyage.captain == None or voyage.copilot == None or voyage.fa1 == None or voyage.fa2 == None:
+                print("-"*70)
+                print("NOT FULLY STAFFED")
+                print(f"Voyage: {voyage.number_id} Captain: {voyage.captain} Co-Pilot: {voyage.copilot} Flight attendant 1: {voyage.fa1} Flight attendant 2: {voyage.fa2}")
+                
+            else:
+                print("-"*70)
+                print("FULLY STAFFED")
+                print(f"Voyage: {voyage.number_id} Captain: {voyage.captain} Co-Pilot: {voyage.copilot} Flight attendant 1: {voyage.fa1} Flight attendant 2: {voyage.fa2}")
+                
+        print("-"*70)
+
+    def check_voyage_per_day(self):
+
+        day = input("do not pad with 0 in month and day and seperate with space\nEnter day to check (YYYY-M-D): ")
+
+        daily_voyages = self.logic_wrapper.check_by_day(day)
+
+        for voyage in daily_voyages:
+            if voyage.captain == None or voyage.copilot == None or voyage.fa1 == None or voyage.fa2 == None:
+                print("-"*70)
+                print("NOT FULLY STAFFED")
+                print(f"Voyage: {voyage.number_id} Captain: {voyage.captain} Co-Pilot: {voyage.copilot} Flight attendant 1: {voyage.fa1} Flight attendant 2: {voyage.fa2}")
+                
+            else:
+                print("-"*70)
+                print("FULLY STAFFED")
+                print(f"Voyage: {voyage.number_id} Captain: {voyage.captain} Co-Pilot: {voyage.copilot} Flight attendant 1: {voyage.fa1} Flight attendant 2: {voyage.fa2}")
+                
+        print("-"*70)

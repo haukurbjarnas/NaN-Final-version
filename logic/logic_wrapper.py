@@ -78,3 +78,15 @@ class LogicWrapper:
     
     def send_employee_schedule(self, name, start, end):
         return self.schedule_logic.check_employee_period(name, start, end)
+
+    def send_understaffed_voyages(self):
+        return self.voyage_logic.understaffed_voyages()
+    
+    def send_fully_staffed_voyages(self):
+        return self.voyage_logic.staffed_voyages()
+    
+    def check_by_week(self, start):
+        return self.voyage_logic.check_crew_in_voyage_by_week(start)
+    
+    def check_by_day(self, start):
+        return self.voyage_logic.check_crew_in_voyage_by_day(start)

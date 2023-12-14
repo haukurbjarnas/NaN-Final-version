@@ -26,8 +26,6 @@ class SchedulesLogic:
 
         matching_voyage = []
 
-        '''for elem in all_voyages:
-            if name == elem.captain or name == elem.copilot or name == elem.fa1 or name == elem.fa2:'''
         
         for voyage in all_voyages:
             if name == voyage.captain or name == voyage.copilot or name == voyage.fa1 or name == voyage.fa2:
@@ -40,8 +38,7 @@ class SchedulesLogic:
                         if (start <= time1) and (end >= time1) and (start <= time2) and (end >= time2):
                             matching_voyage.append(voyage)
                             break
-        
-        
 
-
+       
         return matching_voyage
+    

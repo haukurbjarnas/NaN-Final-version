@@ -9,8 +9,8 @@ class SchedulesUI:
     def schedule_menu(self):
         print("Employee Schedules")
         print("1. See employee specific weekly schedule")
-        print("2. Available employees")
-        print("3. Working employees")
+        
+
 
     def input_prompt(self):
         while True:
@@ -51,3 +51,6 @@ class SchedulesUI:
 
         for voyage in the_schedule:
             print(voyage.number_id)
+
+
+    

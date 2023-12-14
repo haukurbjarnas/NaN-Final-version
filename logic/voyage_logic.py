@@ -1,4 +1,5 @@
 from data.data_wrapper import DataWrapper
+import datetime
 import csv
 
 
@@ -34,3 +35,101 @@ class VoyageLogic:
 
     def count_lines_in_csv(self):
         return self.data_wrapper.get_lines_voyages()
+    
+    def understaffed_voyages(self):
+
+        all_voyages = self.data_wrapper.read_add_voyages()
+
+        understaffed_voyage_list = []
+
+
+        for voyage in all_voyages:
+
+            if voyage.captain == None:
+                understaffed_voyage_list.append(voyage)
+            
+            elif voyage.copilot == None:
+                understaffed_voyage_list.append(voyage)
+
+            elif voyage.fa1 == None:
+                understaffed_voyage_list.append(voyage)
+
+            elif voyage.fa2 == None:
+                understaffed_voyage_list.append(voyage)
+
+        return understaffed_voyage_list
+
+    def staffed_voyages(self):
+
+        all_voyages = self.data_wrapper.read_add_voyages()
+
+        staffed_voyage_list = []
+
+
+        for voyage in all_voyages:
+
+            if voyage.captain and voyage.copilot and voyage.fa1 and voyage.fa2:
+                staffed_voyage_list.append(voyage)
+            
+
+        return staffed_voyage_list
+    
+
+
+    def weekly_period(self, year, month, day):
+        '''Receives start of a weekly period and returns the end of the weekly period to UI layer'''
+        
+        start_of_period = datetime.date(year, month, day)
+
+        period = datetime.timedelta(days = 7)
+
+        end_of_period = start_of_period + period
+
+        return start_of_period, end_of_period
+    
+    def check_crew_in_voyage_by_week(self, start):
+
+        year, month, day = start.split()
+        
+        start_period, end_period = self.weekly_period(int(year), int(month), int(day))
+        
+        all_voyages = self.data_wrapper.read_add_voyages()
+        all_flights = self.data_wrapper.read_all_flights()
+
+        period_voyage = []
+
+        for voyage in all_voyages:
+            for flight in all_flights:
+                if voyage.flight_nr == flight.flight_nr or voyage.flight_nr_back == flight.flight_nr:
+                    year1, month1, day1 = flight.departure_time.split()
+                    year2, month2, day2 = flight.arrival_time.split()
+                    time1 = datetime.date(int(year1), int(month1), int(day1))
+                    time2 = datetime.date(int(year2), int(month2), int(day2))
+                    if (start_period < time1) and (end_period > time1) and (start_period < time2) and (end_period > time2):
+                        period_voyage.append(voyage)
+
+        return period_voyage
+
+
+    def check_crew_in_voyage_by_day(self, theday):
+
+        all_voyages = self.data_wrapper.read_add_voyages()
+        all_flights = self.data_wrapper.read_all_flights()
+        
+        year, month, day = theday.split()
+
+        formatted_day = datetime.date(int(year), int(month), int(day))
+
+        day_voyages = []
+
+        for voyage in all_voyages:
+            for flight in all_flights:
+                if voyage.flight_nr == flight.flight_nr or voyage.flight_nr_back == flight.flight_nr:
+                    year1, month1, day1 = flight.departure_time.split()
+                    year2, month2, day2 = flight.arrival_time.split()
+                    time1 = datetime.date(int(year1), int(month1), int(day1))
+                    time2 = datetime.date(int(year2), int(month2), int(day2))
+                    if (formatted_day == time1) and (formatted_day == time2):
+                        day_voyages.append(voyage)
+
+        return day_voyages
