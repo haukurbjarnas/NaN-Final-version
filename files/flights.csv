@@ -1,5 +1,5 @@
 flight_nr,dep_from,arr_at,departure_time,arrival_time
 01,Keflavík Airport,Stockholm Arlanda,2023 01 06,2023 01 06
 02,Stockholm Arlanda,Keflavík Airport,2023 01 07,2023 01 07
-03,Keflavík Airport,JFK Airport,2023 01 06,2023 01 07
-04,JFK Airport,Keflavík Airport,2023 01 09,2023 01 09
+03,Keflavík Airport,JFK Airport,2023 01 06,2023 02 07
+04,JFK Airport,Keflavík Airport,2023 01 09,2023 02 09

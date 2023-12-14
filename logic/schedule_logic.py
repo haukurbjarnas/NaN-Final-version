@@ -32,12 +32,17 @@ class SchedulesLogic:
         for voyage in all_voyages:
             if name == voyage.captain or name == voyage.copilot or name == voyage.fa1 or name == voyage.fa2:
                 for flight in all_flights:
-                    year1, month1, day1 = flight.departure_time.split()
-                    year2, month2, day2 = flight.arrival_time.split()
-                    time1 = datetime.date(int(year1), int(month1), int(day1))
-                    time2 = datetime.date(int(year2), int(month2), int(day2))
-                    if (start < time1) and (end > time1) and (start < time2) and (end > time2):
-                        matching_voyage.append(voyage)
+                    if voyage.flight_nr == flight.flight_nr or voyage.flight_nr_back == flight.flight_nr:
+                        year1, month1, day1 = flight.departure_time.split()
+                        year2, month2, day2 = flight.arrival_time.split()
+                        time1 = datetime.date(int(year1), int(month1), int(day1))
+                        time2 = datetime.date(int(year2), int(month2), int(day2))
+                        if (start <= time1) and (end >= time1) and (start <= time2) and (end >= time2):
+                            matching_voyage.append(voyage)
+                            break
+        
+        
+
 
         return matching_voyage
                 
