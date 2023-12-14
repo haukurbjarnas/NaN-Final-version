@@ -1,5 +1,5 @@
 from data.data_wrapper import DataWrapper
-
+import csv
 class DestinationLogic:
     
     def __init__(self):
@@ -13,3 +13,6 @@ class DestinationLogic:
     
     def update_information_destination(self, line, column, update):
         self.data_wrapper.update_destination(line, column, update)
+
+    def count_lines_in_csv(self):
+        return self.data_wrapper.get_lines_destinations()

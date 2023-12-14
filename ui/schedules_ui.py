@@ -1,4 +1,5 @@
 from logic.logic_wrapper import LogicWrapper
+import datetime
 
 class SchedulesUI:
 
@@ -38,6 +39,15 @@ class SchedulesUI:
 
         select_employee = int(input("Select an employee: "))
 
-        employee = all_employees[select_employee-1].name
+        employee = all_employees[int(select_employee)-1].name
 
-        print(employee)
+        start_input = input("Enter start of weekly period (YYYY MM DD): ")
+
+        year, month, day = start_input.split()
+
+        start, end = self.logic_wrapper.week_start_to_end(int(year), int(month), int(day))
+
+        the_schedule = self.logic_wrapper.send_employee_schedule(employee, start, end)
+
+        for voyage in the_schedule:
+            print(voyage.number_id)

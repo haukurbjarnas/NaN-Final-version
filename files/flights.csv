@@ -1,7 +1,8 @@
 flight_nr,dep_from,arr_at,departure_time,arrival_time
-STH01,Keflavík Airport,Stockholm Arlanda,06-01-24,12-01-24 13:15
-KEF01,Stockholm Arlanda,Keflavík Airport,13-01-24 09:15,14-01-24 08:30
-GA999,Keflavík Airport,Germany Airport,08-08-08 13:30,08-08-08 13:45
-Ga1222,Germany Airport,Keflavík Airport,08-08-08 14:40,08-08-08 14:45
-FO12222,Keflavík Airport,Fokkoff airport,10-10-10 10:10,10-10-10 10:11
-FO12223,Fokkoff airport,Keflavík Airport,10-10-10 11:11,10-10-10 12:10
+NAN1,Keflavík Airport,Stockholm Arlanda,2024 1 6,2024 1 6
+NAN2,Stockholm Arlanda,Keflavík Airport,2024 1 8,2024 1 8
+NAN3,Keflavík Airport,Germany Airport,2024 2 5,2024 2 5
+NAN4,Germany Airport,Keflavík Airport,2024 2 6,2024 2 6
+NAN5,Keflavík Airport,Fokkoff airport,2024 2 7,2024 2 7
+NAN6,Fokkoff airport,Keflavík Airport,2024 1 4,2024 1 5
+NAN7,Stockholm Arlanda,Stockholm Arlanda,2024 1 3,2024 1 3

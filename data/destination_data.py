@@ -70,3 +70,9 @@ class DestinationData:
                     "contact_number": destination.contact_number,
                     "distance": destination.distance
                 })
+
+    def count_lines_in_csv(self):
+        with open(self.file_name, 'r') as csv_file:
+            csv_reader = csv.reader(csv_file)
+            line_count = len(list(csv_reader))
+        return line_count

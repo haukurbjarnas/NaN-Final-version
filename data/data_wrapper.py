@@ -43,3 +43,15 @@ class DataWrapper:
     
     def create_voyage(self, voyage):
         self.voyage_data.create_voyage(voyage)
+
+    def get_lines_crew(self):
+        return self.crew_data.count_lines_in_csv()
+    
+    def get_lines_destinations(self):
+        return self.destination_data.count_lines_in_csv()
+    
+    def get_lines_voyages(self):
+        return self.voyage_data.count_lines_in_csv()
+    
+    def get_lines_flights(self):
+        return self.flight_data.count_lines_in_csv()

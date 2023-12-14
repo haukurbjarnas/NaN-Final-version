@@ -1,6 +1,9 @@
+
 from models.voyage import Voyage
 from logic.logic_wrapper import LogicWrapper
 from ui.employee_ui import EmployeeUI
+
+
 
 class VoyageUI:
 
@@ -41,7 +44,7 @@ class VoyageUI:
                 print("Invalid input!")
 
     def create_a_voyage(self):
-        number_id = input("Enter number id for the voyage: ")
+        number_id = self.logic_wrapper.get_lines_voyages()
         all_flights = self.logic_wrapper.get_all_flights()
         num = 1
         flight_number_list = []
@@ -50,18 +53,38 @@ class VoyageUI:
             num += 1
             flight_number_list.append(flight.flight_nr)
         
-        flight_nr_choice = int(input("Select the first flight: "))
-        flight_nr = flight_number_list[flight_nr_choice-1]
+        while True:
+            flight_nr_choice = input("Select the first flight: ")
+            if flight_nr_choice.isdigit() and 0 < int(flight_nr_choice) < num:
+                break
+            else:
+                print("Invalid input!")
+        flight_nr = flight_number_list[int(flight_nr_choice)-1]
         num2 = 1
         flight_number_two_list = []
-        for flight in all_flights:
-            if flight.flight_nr != flight_nr:
-                print(f"{num2}. Flight number: {flight.flight_nr} from {flight.dep_from} to {flight.arr_at} Date: {flight.departure_time}")
-                num2 += 1
-                flight_number_two_list.append(flight.flight_nr)
+
+        flight_one = all_flights[int(flight_nr_choice)-1]
+
+        matching_flights = self.logic_wrapper.get_matching_flights(flight_one)
+
+        num10 = 1
+        for elem in matching_flights:
+            print(f"{num10}. Flight number: {elem.flight_nr} departing from {elem.dep_from} and arriving at {elem.arr_at}")
+            num10 += 1
+
+        # for flight in all_flights:
+        #     if flight.flight_nr != flight_nr:
+        #         print(f"{num2}. Flight number: {flight.flight_nr} from {flight.dep_from} to {flight.arr_at} Date: {flight.departure_time}")
+        #         num2 += 1
+        #         flight_number_two_list.append(flight.flight_nr)
+        while True:
+            flight_nr_choice_two = input("Select the second flight: ")
+            if flight_nr_choice_two.isdigit() and 0 < int(flight_nr_choice_two) < num10:
+                break
+            else:
+                print("Invalid input!")
         
-        flight_nr_choice_two = int(input("Select the second flight: "))
-        flight_nr_two = flight_number_two_list[flight_nr_choice_two-1]
+        flight_nr_two = matching_flights[int(flight_nr_choice_two)-1].flight_nr
         wants = input("you want to add crew now?(Y)/(N): ")
         if wants.lower() == "y":
                 all_pilots = self.logic_wrapper.list_all_pilots()
@@ -167,7 +190,7 @@ class VoyageUI:
                         break
                     else:
                         print("Invalid input!")
-                new_info = captain_list[captain_choice-1]
+                new_info = captain_list[int(captain_choice)-1]
              
                 break
             elif wich_crew_to_add == "2":
@@ -182,7 +205,7 @@ class VoyageUI:
                         copilot_list.append(elem.name)
                 copilot_choice = int(input("Select a co-pilot: "))
 
-                new_info = copilot_list[copilot_choice-1]
+                new_info = copilot_list[int(copilot_choice)-1]
                 break
             elif wich_crew_to_add == "3":
                 update = "fa1"
@@ -196,7 +219,7 @@ class VoyageUI:
 
                 main_choice = int(input("Select flight attendant: "))
 
-                new_info = flight_attendants_list[main_choice-1]
+                new_info = flight_attendants_list[int(main_choice)-1]
                 break
             elif wich_crew_to_add == "4":
                 update = "fa2"
@@ -210,7 +233,7 @@ class VoyageUI:
 
                 main_choice_two = int(input("Select flight attendant: "))
 
-                new_info = flight_attendants_list[main_choice_two-1]
+                new_info = flight_attendants_list[int(main_choice_two)-1]
                 break
             else:
                 print("Invalid input!")

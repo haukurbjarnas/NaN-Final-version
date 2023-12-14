@@ -1,5 +1,5 @@
 from data.data_wrapper import DataWrapper
-
+import csv
 class EmployeeLogic:
     
     def __init__(self):
@@ -32,3 +32,9 @@ class EmployeeLogic:
 
     def update_information_employee(self, line, column, update):
         self.crew_wrapper.update_employee(line, column, update)
+
+    def count_lines_in_csv(self):
+        return self.crew_wrapper.get_lines_crew()
+    
+
+    

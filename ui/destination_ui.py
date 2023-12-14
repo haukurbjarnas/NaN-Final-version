@@ -28,12 +28,7 @@ class DestinationUI:
 
 
     def create_destination(self):
-        while True:
-            numeric_id = input("Enter numeric ID: ")
-            if numeric_id.isdigit():
-                break
-            else:
-                print("Invalid input!")
+        numeric_id = self.logic_wrapper.get_lines_destinations()
 
         while True:
             airport_code = input("Enter Airport abbreviation: ")
@@ -41,6 +36,7 @@ class DestinationUI:
                 break
             else:
                 print("Invalid input!")
+            airport_code = airport_code.upper()
 
         while True:
             country = input("Enter the country of the destination: ")

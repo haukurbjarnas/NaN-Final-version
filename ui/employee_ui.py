@@ -38,12 +38,8 @@ class EmployeeUI:
 
 
     def create_employee(self):
-        while True:
-            nid = input("Enter number ID for the employee: ")
-            if nid.isdigit():
-                break
-            else:
-                print("Invalid input!")
+        
+        nid = self.logic_wrapper.get_lines_voyages()
             
         while True:
             name = input("Enter name: ")
@@ -204,7 +200,7 @@ class EmployeeUI:
 
         while True:
             new_info = input("Enter new info: ")
-            if all(x.isascii() or x.isspace() for x in new_info):
+            if all(x.isalnum() or x.isspace() for x in new_info):
                 break
             else:
                 print("Invalid input!")

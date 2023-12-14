@@ -1,4 +1,7 @@
 from data.data_wrapper import DataWrapper
+import csv
+
+
 
 class VoyageLogic:
 
@@ -28,3 +31,6 @@ class VoyageLogic:
 
     def create_voyage(self, voyage):
         self.data_wrapper.create_voyage(voyage)
+
+    def count_lines_in_csv(self):
+        return self.data_wrapper.get_lines_voyages()

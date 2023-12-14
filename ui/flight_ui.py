@@ -27,12 +27,7 @@ class FlightUI:
             
 
     def create_flight(self):
-        while True:
-            flight_nr = input("Enter flight number: ")
-            if flight_nr:
-                break
-            else:
-                print("Invalid input!")
+        flight_nr = f"NAN{self.logic_wrapper.get_lines_flights()}"
 
         list_of_destinations = self.logic_wrapper.get_all_destinations()
 
@@ -67,9 +62,9 @@ class FlightUI:
 
         arr_at = location_list[int(select_place_of_arrival) - 1]
 
-        departure_time = input("Enter date and time of departure (DD-MM-YY 00:00): ")
+        departure_time = input("Enter date and time of departure (YYYY M D): ")
 
-        arrival_time = input("Enter date and time of arrival (DD-MM-YY 00:00): ")
+        arrival_time = input("Enter date and time of arrival (YYYY M D): ")
 
         flight = Flight(flight_nr, dep_from, arr_at, departure_time, arrival_time)
 
