@@ -180,43 +180,45 @@ class EmployeeUI:
                 print("Invalid input!")
             
         print("Select what you want to update: ")
-        print("1. Role")
-        print("2. Rank")
-        print("3. Phone number")
-        print("4. E-Mail")
-        print("5. Address")
-        print("6. Home phone number")
+        print("1. Phone number")
+        print("2. E-Mail")
+        print("3. Address")
+        print("4. Home phone number")
 
-        what_to_update = input("Select what you want to update: ")
+        
 
         while True:
+            what_to_update = input("Select what you want to update: ")
+            update = ""
+
             if what_to_update == "1":
-                update = "role"
-                break
-            elif what_to_update == "2":
-                update = "rank"
-                break
-            elif what_to_update == "3":
                 update = "phone_nr"
-                break
-            elif what_to_update == "4":
+            elif what_to_update == "2":
                 update = "email"
-                break
-            elif what_to_update == "5":
+            elif what_to_update == "3":
                 update = "address"
-                break
-            elif what_to_update == "6":
+            elif what_to_update == "4":
                 update = "home_phone"
-                break
             else:
                 print("Invalid input!")
+                continue  # Skip the rest of the loop and start over
 
-        while True:
-            new_info = input("Enter new info: ")
-            if all(x.isalnum() or x.isspace() for x in new_info):
-                break
-            else:
-                print("Invalid input!")
+            while True:
+                new_info = input(f"Enter new info: ")
+
+                if (update == "phone_nr" or update == "home_phone") and new_info.isdigit() and len(new_info) <= 10:
+                    break
+                elif update == "email" and new_info.isascii() and len(new_info) <= 40:
+                    break
+                elif update == "address" and all(x.isascii() or x.isspace() for x in new_info):
+                    break
+                else:
+                    print("Invalid input!")
+
+            # If the inner loop breaks, it means a new input is successfully added, so break the outer loop
+            break
+
+
 
         self.logic_wrapper.new_information_employee(int(name_of)-1, update, new_info)
 
