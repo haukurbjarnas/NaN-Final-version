@@ -42,3 +42,40 @@ class SchedulesLogic:
        
         return matching_voyage
     
+
+    def aviable_employees(self, day):
+        
+        year, month, day = day.split()
+
+        flight_list = []
+
+        the_day = datetime.date(int(year), int(month), int(day))
+
+        all_voyages = self.data_wrapper.read_add_voyages()
+        all_flights = self.data_wrapper.read_all_flights()
+
+
+        for voyage in all_voyages:
+            for flight in all_flights:
+                if voyage.flight_nr == flight.flight_nr or voyage.flight_nr_back == flight.flight_nr:
+                    if flight.departure_time == the_day:
+                        pass
+                    else:
+                        if voyage.captain in flight_list:
+                            pass
+                        else:
+                            flight_list.append(voyage.captain)
+                        if voyage.copilot in flight_list:
+                            pass
+                        else:
+                            flight_list.append(voyage.copilot)
+                        if voyage.fa1 in flight_list:
+                            pass
+                        else:
+                            flight_list.append(voyage.fa1)
+                        if voyage.fa2 in flight_list:
+                            pass
+                        else:
+                            flight_list.append(voyage.fa2)
+        
+        return flight_list

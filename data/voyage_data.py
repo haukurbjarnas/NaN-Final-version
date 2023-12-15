@@ -14,15 +14,11 @@ class Voyage_Data:
             reader = csv.DictReader(csvfile)
             for row in reader:
                 ret_list.append(Voyage(
-                    # FlightData.get_flight_by_id(row["flight_nr"]),
-                    # FlightData.get_flight_by_id(row["flight_nr_back"]),
-                    # CrewData.get_crew_member_by_id(row["captain"]),
-                    # CrewData.get_crew_member_by_id(row["copilot"]),
-                    # CrewData.get_crew_member_by_id(row["fa1"]),
-                    # CrewData.get_crew_member_by_id(row["fa2"])
                     row["number_id"],
                     row["flight_nr"],
                     row["flight_nr_back"],
+                    row["date1"],
+                    row["date2"],
                     row["captain"],
                     row["copilot"],
                     row["fa1"],
@@ -33,12 +29,14 @@ class Voyage_Data:
     def create_voyage(self, voyage):
         '''Creates a voyage and writes it to the voyage csv file'''
         with open(self.file_name, 'a', newline='', encoding="utf-8") as csvfile:
-            fieldnames = ["number_id", "flight_nr", "flight_nr_back", "captain", "copilot", "fa1", "fa2"]
+            fieldnames = ["number_id", "flight_nr", "flight_nr_back", "date1", "date2", "captain", "copilot", "fa1", "fa2"]
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
             writer.writerow({
                 'number_id': voyage.number_id,
                 'flight_nr': voyage.flight_nr,
                 'flight_nr_back': voyage.flight_nr_back,
+                'date1': voyage.date1,
+                'date2': voyage.date2,
                 'captain': voyage.captain,
                 'copilot': voyage.copilot,
                 'fa1': voyage.fa1,
@@ -55,7 +53,7 @@ class Voyage_Data:
 
     def write_csv(self, data):
         with open(self.file_name, 'w', newline='', encoding="utf-8") as csvfile:
-            fieldnames = ["number_id", "flight_nr", "flight_nr_back", "captain", "copilot", "fa1", "fa2"]
+            fieldnames = ["number_id", "flight_nr", "flight_nr_back", "date1", "date2", "captain", "copilot", "fa1", "fa2"]
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
             
             writer.writeheader()
@@ -64,6 +62,8 @@ class Voyage_Data:
                     'number_id': voyage.number_id,
                     'flight_nr': voyage.flight_nr,
                     'flight_nr_back': voyage.flight_nr_back,
+                    'date1': voyage.date1,
+                    'date2': voyage.date2,
                     'captain': voyage.captain,
                     'copilot': voyage.copilot,
                     'fa1': voyage.fa1,

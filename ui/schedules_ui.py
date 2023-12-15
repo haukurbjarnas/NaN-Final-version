@@ -9,6 +9,8 @@ class SchedulesUI:
     def schedule_menu(self):
         print("Employee Schedules")
         print("1. See employee specific weekly schedule")
+        print("2. Check which employees are available by day")
+        print("3. Check which employees are working and to what destination they are assigned")
         
 
 
@@ -53,4 +55,6 @@ class SchedulesUI:
             print(voyage.number_id)
 
 
-    
+    def are_employees_working_that_day(self):
+
+        pass

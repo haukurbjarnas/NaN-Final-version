@@ -133,3 +133,67 @@ class VoyageLogic:
                         day_voyages.append(voyage)
 
         return day_voyages
+    
+    # def check_matching_day(self, voyage_to_check, name):
+                
+
+
+    #     flights_that_day = []
+    
+    #     all_voyages = self.data_wrapper.read_add_voyages()
+    #     all_flights = self.data_wrapper.read_all_flights()
+
+    #     for voyage in all_voyages:
+    #         if name == voyage.captain or name == voyage.copilot or name == voyage.fa1 or name == voyage.fa2:
+    #             for flight in all_flights:
+    #                 if flight.flight_nr == voyage.flight_nr or flight.flight_nr == voyage.flight_nr_back:
+    #                     date_to_check = flight.departure_time
+    #                         for flight in all_flights:
+    #                             if flight.departure_time == date_to_check:
+    #                                 flights_that_day.append(flight)
+
+
+
+
+    #     return flights_that_day
+
+    def blalba(self, voyage_to_check, name):
+        flights_that_day = []
+
+        all_voyages = self.data_wrapper.read_add_voyages()
+        all_flights = self.data_wrapper.read_all_flights()
+
+        for voyage in all_voyages:
+            if name == voyage.captain or name == voyage.copilot or name == voyage.fa1 or name == voyage.fa2:
+                for flight in all_flights:
+                    if flight.flight_nr == voyage.flight_nr or flight.flight_nr == voyage.flight_nr_back:
+                        date_to_check = flight.departure_time
+
+                        for flight_in_day in all_flights:
+                            if flight_in_day.departure_time == date_to_check:
+                                flights_that_day.append(flight_in_day)
+                                
+                                # Break out of the inner loop once a match is found
+                                break
+
+        return flights_that_day
+    
+    def check_matching_day(self, voyage_to_check, name):
+
+        a_list = []
+
+        all_voyages = self.data_wrapper.read_add_voyages()
+        all_flights = self.data_wrapper.read_all_flights()
+
+        for voyage in all_voyages:
+            if voyage == voyage_to_check:
+                pass
+            else:
+                if voyage.captain == name or voyage.copilot == name or voyage.fa1 == name or voyage.fa2 == name:
+                    if voyage.date1 == voyage_to_check.date1 or voyage.date1 == voyage_to_check.date2 or voyage.date2 == voyage_to_check.date1 or voyage.date2 == voyage_to_check.date2:
+                        a_list.append(1)
+
+        return a_list
+
+
+        

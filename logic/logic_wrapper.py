@@ -90,3 +90,6 @@ class LogicWrapper:
     
     def check_by_day(self, start):
         return self.voyage_logic.check_crew_in_voyage_by_day(start)
+    
+    def check_day(self, voyage, name):
+        return self.voyage_logic.check_matching_day(voyage, name)

@@ -1,2 +1,3 @@
-number_id,flight_nr,flight_nr_back,captain,copilot,fa1,fa2
-1,NAN1,NAN2,Osama Bin Laden,Ned Flanders,Dúna Pálsdóttir,Lisa Simpson
+number_id,flight_nr,flight_nr_back,date1,date2,captain,copilot,fa1,fa2
+1,NAN1,NAN2,2024 1 6,2024 1 8,Haukur Bjarnason,,,
+2,NAN3,NAN4,2024 1 6,2024 1 9,,,,
