@@ -1,0 +1,14 @@
+27/11/23
+Mættir: 
+    Gummi 
+    Breki 
+    Haukur
+Todo:
+    læra á github
+    gera repo á github
+    gera plan fyrir vikuna
+
+Afrakstur dagsins:
+    gerðum repo á gihub
+    lærðum að nota github
+    gerðum gróft plan fyrir hönnunarskýrsluna 
