@@ -9,7 +9,7 @@ möppurnar innihalda eftirfarandi:
 
 allt sem tengist gagnagrunninum er í data möppunni
 allir módelklasar eru í model möppunni
-csv filearnir eru í files möppunni
+csv filearnir eru í files möppunni með dummy gögnum
 allt tengt UI er í ui möppunni
 forritið er síðan keyrt í main.py fileinu
 
