@@ -12,8 +12,7 @@ class VoyageUI:
         self.employee_ui = EmployeeUI()
 
     def voyage_menu(self):
-        print("-"*30)
-        print("")
+        print("-"*50)
         print("Voyage Management")
         print("1. Create voyage")
         print("2. List all voyages")
@@ -23,8 +22,8 @@ class VoyageUI:
         print("6. Check voyages by week")
         print("7. Check voyages by day")
         print("Enter (B)ack to go back")
+        print("-"*50)
         print("")
-        print("-"*30)
     
     def input_prompt(self):
         while True:
@@ -36,9 +35,8 @@ class VoyageUI:
                 print("")
                 self.create_a_voyage()
             elif command == "2":
-                print("")
                 print("ALL VOYAGES")
-                print("-"*40)
+                print("-"*50)
                 self.print_all_voyages()
             elif command == "3":
                 print("")
@@ -59,9 +57,10 @@ class VoyageUI:
                 print("")
                 return "b"
             else:
-                print("Invalid input!")
+                print("Invalid input try again..")
 
     def create_a_voyage(self):
+        all_voyages = self.logic_wrapper.get_all_voyages()
         number_id = self.logic_wrapper.get_lines_voyages()
         all_flights = self.logic_wrapper.get_all_flights()
         num = 1
@@ -77,7 +76,7 @@ class VoyageUI:
             if flight_nr_choice.isdigit() and 0 < int(flight_nr_choice) < num:
                 break
             else:
-                print("Invalid input!")
+                print("Invalid input try again..")
         flight_nr = all_flights[int(flight_nr_choice)-1].flight_nr
         flight_one_departure = all_flights[int(flight_nr_choice)-1].departure_time
         num2 = 1
@@ -97,66 +96,18 @@ class VoyageUI:
             if flight_nr_choice_two.isdigit() and 0 < int(flight_nr_choice_two) < num10:
                 break
             else:
-                print("Invalid input!")
+                print("Invalid input try again..")
         
         flight_nr_two = matching_flights[int(flight_nr_choice_two)-1].flight_nr
         flight_two_departure = matching_flights[int(flight_nr_choice_two)-1].departure_time
-        wants = input("you want to add crew now?(Y)/(N): ")
+        voyage = Voyage(number_id,flight_nr,flight_nr_two, flight_one_departure, flight_two_departure, "", "", "", "")
+        self.logic_wrapper.create_a_voyage(voyage)
+        wants = input(f"you want to add crew now for voyage nr:{number_id}?(Y)/(N): ")
         if wants.lower() == "y":
-                all_pilots = self.logic_wrapper.list_all_pilots()
-                num = 1
-                captain_list = []
-                for elem in all_pilots:
-                    if elem.rank == "Captain":
-                        print(f"{num}. {elem.name}")
-                        captain_list.append(elem.name)
-                        num += 1
-
-                captain_choice = int(input("Select a captain: "))
-
-                captain = captain_list[captain_choice-1]
-
-                all_pilots = self.logic_wrapper.list_all_pilots()
-                copilot_list = []
-                num2 = 1
-                for elem in all_pilots:
-                    if elem.rank == "Co-Pilot":
-                        print(f"{num2}. {elem.name}")
-                        num2 += 1
-                        copilot_list.append(elem.name)
-                copilot_choice = int(input("Select a co-pilot: "))
-
-                copilot = copilot_list[copilot_choice-1]
-
-                all_attendants = self.logic_wrapper.list_all_attendants()
-                num3 = 1
-                flight_attendants_list = []
-                for elem in all_attendants:
-                    print(f"{num3}. {elem.name}")
-                    flight_attendants_list.append(elem.name)
-                    num3 += 1
-
-                main_choice = int(input("Select flight attendant: "))
-
-                fa1 = flight_attendants_list[main_choice-1]
-                all_attendants = self.logic_wrapper.list_all_attendants()
-                num4 = 1
+            self.add_crew_to_voyage()
                 
-                for elem in all_attendants:
-                    print(f"{num4}. {elem.name}")
-                    flight_attendants_list.append(elem.name)
-                    num4 += 1
-
-                main_choice_two = int(input("Select a second flight attendant: "))
-
-                fa2 = flight_attendants_list[main_choice_two-1]
-                voyage = Voyage(number_id, flight_nr, flight_nr_two, flight_one_departure, flight_two_departure, captain, copilot, fa1, fa2)
-                self.logic_wrapper.create_a_voyage(voyage)
-                print("Voyage succesfully created with crew!")
         else:
-            voyage = Voyage(number_id,flight_nr,flight_nr_two, flight_one_departure, flight_two_departure, "", "", "", "")
-            self.logic_wrapper.create_a_voyage(voyage)
-            print("Voyage successfully created without crew!")
+            print(f"Voyage successfully created WITHOUT crew! your voyage id is {number_id}")
 
 
 
@@ -170,9 +121,12 @@ class VoyageUI:
     def add_crew_to_voyage(self):
         all_voyages = self.logic_wrapper.get_all_voyages()
         num = 1
+        if not all_voyages:
+            print("There are no voyages...")
+            return
         
         for voyage in all_voyages:
-            print(f"{num}. Voyage id: {voyage.number_id}")
+            print(f"{num}. Voyage id: {voyage.number_id} with flight number from kef: {voyage.flight_nr} and depaprting {voyage.date1} from kef")
             num += 1
 
         while True:
@@ -180,15 +134,17 @@ class VoyageUI:
             if name_of.isdigit() and 0 < int(name_of) <num:
                 break
             else:
-                print("Invalid input!")
+                print("Invalid input try again..")
 
         voyage_to_assign = all_voyages[int(name_of)-1]
-        
+        print("-"*50)
         print("Select wich crew member you want to add to the voyage: ")
         print("1. Captain")
-        print("2. Copilot")
+        print("2. Co-pilot")
         print("3. Flight attendant 1")
         print("4. Flight attendant 2")
+        print("-"*50)
+        print("")
 
         wich_crew_to_add = input("Enter number of crew member to add: ")
 
@@ -215,10 +171,10 @@ class VoyageUI:
                     else:
                         break
                 else:
-                    print("Invalid input!")
+                    print("Invalid input try again..")
 
 
-        if wich_crew_to_add == "2":
+        elif wich_crew_to_add == "2":
             update = "copilot"
             all_pilots = self.logic_wrapper.list_all_pilots()
             copilot_list = []
@@ -226,13 +182,23 @@ class VoyageUI:
             for elem in all_pilots:
                 if elem.rank == "Co-Pilot":
                     print(f"{num2}. {elem.name}")
-                    num2 += 1
                     copilot_list.append(elem.name)
-            copilot_choice = int(input("Select a co-pilot: "))
-                
-            new_info = copilot_list[int(copilot_choice)-1]
+                    num2 += 1
+
+            while True:
+                copilot_choice = input("Select a copilot: ")
+                if copilot_choice.isdigit() and 0 < int(copilot_choice) <num2:
+                    new_info = copilot_list[int(copilot_choice)-1]
+                    voyage_same_day_check = self.logic_wrapper.check_day(voyage_to_assign, new_info)
+                    if len(voyage_same_day_check) > 0:
+                        print("Employee is already assigned to voyage with the same date!")
+                    else:
+                        break
+                else:
+                    print("Invalid input try again..")
+
                
-        if wich_crew_to_add == "3":
+        elif wich_crew_to_add == "3":
             update = "fa1"
             all_attendants = self.logic_wrapper.list_all_attendants()
             num3 = 1
@@ -242,9 +208,19 @@ class VoyageUI:
                 flight_attendants_list.append(elem.name)
                 num3 += 1
 
-            main_choice = int(input("Select flight attendant: "))
+            while True:
+                main_choice = input("Select the main flight attendant: ")
+                if main_choice.isdigit() and 0 < int(main_choice) <num3:
+                    new_info = flight_attendants_list[int(main_choice)-1]
+                    voyage_same_day_check = self.logic_wrapper.check_day(voyage_to_assign, new_info)
+                    if len(voyage_same_day_check) > 0:
+                        print("Employee is already assigned to voyage with the same date!")
+                    else:
+                        break
+                else:
+                    print("Invalid input try again..")
 
-            new_info = flight_attendants_list[int(main_choice)-1]
+            
           
         elif wich_crew_to_add == "4":
             update = "fa2"
@@ -256,12 +232,20 @@ class VoyageUI:
                 flight_attendants_list.append(elem.name)
                 num4 += 1
 
-            main_choice_two = int(input("Select flight attendant: "))
-
-            new_info = flight_attendants_list[int(main_choice_two)-1]
+            while True:
+                main_choice_two = input("Select the second flight attendant: ")
+                if main_choice_two.isdigit() and 0 < int(main_choice_two) <num4:
+                    new_info = flight_attendants_list[int(main_choice_two)-1]
+                    voyage_same_day_check = self.logic_wrapper.check_day(voyage_to_assign, new_info)
+                    if len(voyage_same_day_check) > 0:
+                        print("Employee is already assigned to voyage with the same date!")
+                    else:
+                        break
+                else:
+                    print("Invalid input try again..")
           
         else:
-            print("Invalid input!")
+            print("Invalid input try again..")
 
         self.logic_wrapper.add_crew_to_voyage(int(name_of)-1, update, new_info)
 
@@ -270,19 +254,21 @@ class VoyageUI:
     def fully_staffed_voyages(self):
         
         staffed = self.logic_wrapper.send_fully_staffed_voyages()
+        print("-"*50)
         print("Fully staffed voyages")
-        print("-"*40)
+        print("-"*50)
         for voyage in staffed:
             print(f"Voyage {voyage.number_id}: Captain: {voyage.captain} Co-Pilot: {voyage.copilot} Flight attendant 1: {voyage.fa1} Flight attendant 2: {voyage.fa2}")
-
+            print("-"*50)
     def understaffed_voyages(self):
         
         understaffed = self.logic_wrapper.send_understaffed_voyages()
+        print("-"*50)
         print("Understaffed voyages")
-        print("-"*40)
+        print("-"*50)
         for voyage in understaffed:
             print(f"Voyage {voyage.number_id}: Captain: {voyage.captain} Co-Pilot: {voyage.copilot} Flight attendant 1: {voyage.fa1} Flight attendant 2: {voyage.fa2}")
-
+            print("-"*50)
     def check_voyage_per_week(self):
 
         period = input("do not pad with 0 in month and day and seperate with space\nEnter start of weekly period to check (YYYY-M-D): ")
@@ -291,12 +277,12 @@ class VoyageUI:
 
         for voyage in weekly_voyages:
             if voyage.captain == None or voyage.copilot == None or voyage.fa1 == None or voyage.fa2 == None:
-                print("-"*70)
+                print("-"*50)
                 print("NOT FULLY STAFFED")
                 print(f"Voyage: {voyage.number_id} Captain: {voyage.captain} Co-Pilot: {voyage.copilot} Flight attendant 1: {voyage.fa1} Flight attendant 2: {voyage.fa2}")
                 
             else:
-                print("-"*70)
+                print("-"*50)
                 print("FULLY STAFFED")
                 print(f"Voyage: {voyage.number_id} Captain: {voyage.captain} Co-Pilot: {voyage.copilot} Flight attendant 1: {voyage.fa1} Flight attendant 2: {voyage.fa2}")
                 
@@ -310,13 +296,15 @@ class VoyageUI:
 
         for voyage in daily_voyages:
             if voyage.captain == None or voyage.copilot == None or voyage.fa1 == None or voyage.fa2 == None:
-                print("-"*70)
+                print("-"*50)
                 print("NOT FULLY STAFFED")
                 print(f"Voyage: {voyage.number_id} Captain: {voyage.captain} Co-Pilot: {voyage.copilot} Flight attendant 1: {voyage.fa1} Flight attendant 2: {voyage.fa2}")
                 
             else:
-                print("-"*70)
+                print("-"*50)
                 print("FULLY STAFFED")
                 print(f"Voyage: {voyage.number_id} Captain: {voyage.captain} Co-Pilot: {voyage.copilot} Flight attendant 1: {voyage.fa1} Flight attendant 2: {voyage.fa2}")
                 
-        print("-"*70)
+        print("-"*50)
+
+

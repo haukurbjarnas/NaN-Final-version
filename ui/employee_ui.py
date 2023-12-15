@@ -7,7 +7,7 @@ class EmployeeUI:
         self.logic_wrapper = LogicWrapper()
 
     def employee_menu(self):
-        print("")
+        print("-"*50)
         print("Employee Management")
         print("1. Create employee")
         print("2. List pilots")
@@ -15,6 +15,8 @@ class EmployeeUI:
         print("4. List all employees")
         print("5. Update employee")
         print("Enter (B)ack to go back")
+        print("-"*50)
+        print("")
 
     def input_prompt(self):
         while True:
@@ -39,21 +41,21 @@ class EmployeeUI:
 
     def create_employee(self):
         
-        nid = self.logic_wrapper.get_lines_voyages()
+        nid = self.logic_wrapper.get_lines_employees()
             
         while True:
             name = input("Enter name: ")
             if all(x.isalpha() or x.isspace() for x in name):
                 break
             else:
-                print("Invalid input!")
+                print("Invalid input try again..")
         
         while True:
             ssn = input("Enter social security number: ")
             if ssn.isdigit():
                 break
             else:
-                print("Invalid input!")
+                print("Invalid input try again..")
         
         while True:
             role_choice = input(f"Is (P)ILOT or (F)LIGHT ATTENDANT?: ")
@@ -65,7 +67,7 @@ class EmployeeUI:
                 role = "Flight attendant"
                 break
             else:
-                print("Invalid input!")
+                print("Invalid input try again..")
 
         while True:
             if role == "Pilot":
@@ -93,7 +95,7 @@ class EmployeeUI:
                     rank = "Normal Flight attendant"
                     break
                 else:
-                    print("Invalid input!")
+                    print("Invalid input try again..")
 
 
         while True:
@@ -101,28 +103,28 @@ class EmployeeUI:
             if phone.isdigit():
                 break
             else:
-                print("Invalid input!")
+                print("Invalid input try again..")
 
         while True:
             email = input("Enter e-mail address: ")
             if email.isascii() and 0 < len(email) < 40:
                 break
             else:
-                print("Invalid input!")
+                print("Invalid input try again..")
 
         while True:
             address = input("Enter home address (street and number): ")
             if all(x.isalnum() or x.isspace() for x in address):
                 break
             else:
-                print("Invalid input!")
+                print("Invalid input try again..")
 
         while True:
-            home_phone = input("Enter home phone number (optional): ")
+            home_phone = input("Enter home phone number (optional) press enter if you do not wish to add home phone number: ")
             if home_phone.isdigit() or home_phone == "":
                 break
             else:
-                print("Invalid input!")
+                print("Invalid input try again..")
 
         employee = Crew(nid, name, ssn, role, rank, phone, email, address, home_phone)
         
@@ -134,8 +136,7 @@ class EmployeeUI:
         
         result = self.logic_wrapper.list_all_employees()
         for elem in result:
-            print("")
-            print("-"*40)
+            print("-"*50)
             print(f"Number ID: {elem.nid}")
             print(f"Name: {elem.name}")
             print(f"SSN: {elem.ssn}")
@@ -145,7 +146,7 @@ class EmployeeUI:
             print(f"e-Mail: {elem.email}")
             print(f"Address: {elem.address}")
             print(f"Home phone number: {elem.home_phone}")
-            print("-"*40)
+            print("-"*50)
             print("")
 
     def print_pilots(self):
@@ -177,13 +178,16 @@ class EmployeeUI:
             if name_of.isdigit() and 0 < int(name_of) <num:
                 break
             else:
-                print("Invalid input!")
-            
+                print("Invalid input try again..")
+        
+        print("-"*50)    
         print("Select what you want to update: ")
         print("1. Phone number")
         print("2. E-Mail")
         print("3. Address")
         print("4. Home phone number")
+        print("-"*50)
+        print("")
 
         
 
@@ -200,8 +204,8 @@ class EmployeeUI:
             elif what_to_update == "4":
                 update = "home_phone"
             else:
-                print("Invalid input!")
-                continue  # Skip the rest of the loop and start over
+                print("Invalid input try again..")
+                continue  
 
             while True:
                 new_info = input(f"Enter new info: ")
@@ -213,9 +217,9 @@ class EmployeeUI:
                 elif update == "address" and all(x.isascii() or x.isspace() for x in new_info):
                     break
                 else:
-                    print("Invalid input!")
+                    print("Invalid input try again..")
 
-            # If the inner loop breaks, it means a new input is successfully added, so break the outer loop
+            
             break
 
 

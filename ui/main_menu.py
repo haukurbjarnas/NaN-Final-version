@@ -24,6 +24,7 @@ class MainMenu:
         print("4. Destination management")
         print("5. Employee schedules")
         print("(Q)uit to exit")
+        print("")
 
     def input_prompt(self):
         while True:
@@ -59,4 +60,4 @@ class MainMenu:
                 if back == "q":
                     return "q"
             else:
-                print("Invalid input!")
+                print("Invalid input try again..")

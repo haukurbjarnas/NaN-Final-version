@@ -7,11 +7,14 @@ class DestinationUI:
         self.logic_wrapper = LogicWrapper()
 
     def destination_menu(self):
+        print("-"*50)
         print("Destination Menu")
         print("1. Create destination")
         print("2. List all destinations")
         print("3. Update contact info for destination")
         print("Enter (B)ack to go back")
+        print("-"*50)
+        print("")
     def input_prompt(self):
         while True:
             self.destination_menu()
@@ -35,7 +38,7 @@ class DestinationUI:
             if airport_coder.isalpha() and len(airport_coder) == 3:
                 break
             else:
-                print("Invalid input!")
+                print("Invalid input try again..")
         airport_code = airport_coder.upper()
 
         while True:
@@ -43,37 +46,43 @@ class DestinationUI:
             if all(x.isalpha() or x.isspace() for x in country):
                 break
             else:
-                print("Invalid input!")
+                print("Invalid input try again..")
 
         while True:
             airport_name = input("Enter name of the airport: ")
             if all(x.isalpha() or x.isspace() for x in airport_name):
                 break
             else:
-                print("Invalid input!")
+                print("Invalid input try again..")
 
-        contact_name = input("Enter a contact name for the destination: ")
+        while True:
+            contact_name = input("Enter a contact name for the destination: ")
+            if all(x.isalpha() or x.isspace() for x in contact_name):
+                break
+            else:
+                print("Invalid input try again..")
+        
 
         while True:
             contact_number = input(f"Enter {contact_name}'s contact phone number: ")
             if contact_number.isdigit() and 0 < len(contact_number) <= 10:
                 break
             else:
-                print("Invalid input!")
+                print("Invalid input try again..")
 
         while True:
             try:
                 distance = int(input(f"Enter distance to {airport_name} in Km: "))
                 break
             except ValueError:
-                print("Invalid input!")
+                print("Invalid input try again..")
 
         while True:
             try:
                 time_from_ice = int(input(f"Enter time in whole hours to {airport_name}: "))
                 break
             except ValueError:
-                print("Invalid input!")
+                print("Invalid input try again..")
 
         destination = Destination(numeric_id, airport_code, country, airport_name, contact_name, contact_number, distance, time_from_ice)
         self.logic_wrapper.get_destination(destination)
@@ -84,8 +93,7 @@ class DestinationUI:
         all_destinations = self.logic_wrapper.get_all_destinations()
 
         for dest in all_destinations:
-            print("")
-            print("-"*30)
+            print("-"*50)
             print(f"Numeric ID: {dest.numeric_id}")
             print(f"ID: {dest.id}")
             print(f"Country: {dest.country}")
@@ -94,7 +102,7 @@ class DestinationUI:
             print(f"Time in whole hours to {dest.airport} from Iceland: {dest.time_from_ice}")
             print(f"Name of emergency contact: {dest.contact_name}")
             print(f"{dest.contact_name}'s number : {dest.contact_number}")
-            print("-"*30)
+            print("-"*50)
             print("")
 
 
@@ -112,11 +120,13 @@ class DestinationUI:
             if name_of.isdigit() and 0 < int(name_of) <num:
                 break
             else:
-                print("Invalid input!")
-            
+                print("Invalid input try again..")
+        print("-"*50)
         print("Select what you want to update: ")
         print("1. Contact name")
         print("2. Contact number")
+        print("-"*50)
+        print("")
     
 
         what_to_update = input("Select what you want to update: ")
@@ -129,15 +139,16 @@ class DestinationUI:
                 update = "contact_number"
                 break
             else:
-                print("Invalid input!")
+                print("Invalid input try again..")
 
         while True:
             new_info = input("Enter new info: ")
             if all(x.isalnum() or x.isspace() for x in new_info):
                 break
             else:
-                print("Invalid input!")
+                print("Invalid input try again..")
 
         self.logic_wrapper.new_information_destination(int(name_of)-1, update, new_info)
 
         print("Update successful...")
+        print("")

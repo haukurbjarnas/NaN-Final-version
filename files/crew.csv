@@ -1,14 +1,32 @@
 nid,name,ssn,role,rank,phone_nr,email,address,home_phone
-1,Haukur Bjarnason,0601042470,Pilot,Captain,8234747,haukur@gmail.com,Smyrilshlíð 11,5544649
-2,Helgi Edwald,2506041234,Pilot,Co-Pilot,5812345,dickcheese,Lynghagi 22,
-3,Dúna Pálsdóttir,2611041234,Flight attendant,Main flight attendant,5525522,dunsipunsi,Hringbraut 66,
-4,Óliver Karl Sandberg Birgisson,0911041234,Flight attendant,Normal Flight attendant,112,kengerinn,Smyrilshlíð 3,
-5,Breki Arndal,03,Pilot,Captain,555,geggjadur,Örg kópavegur eða eh,
-6,Osama Bin Laden,222222222,Pilot,Captain,4206936068,a_hoax@im_alive.com,Abbodabad,
-7,Yoda,1304764333,Flight attendant,Main flight attendant,9998877,yoda@starwars.com,earth 43,
-8,Bart Simpsson,667788991010,Pilot,Captain,757575757,bart@homersemail.com,simpssonsstreet 5,
-9,Ned Flanders,8899379898,Pilot,Co-Pilot,88877738,ned@flanders.org,simpssonssstreet 6,
-10,Homer Simpsson,99938383,Flight attendant,Normal Flight attendant,98283838,homer@simpson.gov,simpssonsstreet 5,
-11,Lisa Simpson,98734050,Flight attendant,Normal Flight attendant,222,Lisa@iamsmarter.net,simspnsstreet 5,
-12,Rósa Kristjánssdóttir,0300400020,Pilot,Co-Pilot,84848999,rosa@gmail.com,laufstræti 5,
-3,Sveppi Krull,1234567,Captain,Captain,135136,mrboombastic,Hjarðarhagi 22,
+1,William Carillo,1222432480,Pilot,Captain,8998801,nan@nan.com,Fellsmúli 1,8998801
+2,Virginia Ho,1222032430,Pilot,Captain,8998802,nan@nan.com,Fellsmúli 2,8998802
+3,Gerard Norris,1222022480,Pilot,Captain,8998803,nan@nan.com,Fellsmúli 3,8998803
+4,Franko Sinatra,1227032480,Pilot,Captain,8998804,nan@nan.com,Fellsmúli 4,8998804
+5,Felecia Moye,1222002480,Pilot,Captain,8998805,nan@nan.com,Fellsmúli 5,8998805
+6,Tyler Anderson,1228032480,Pilot,Captain,8998806,nan@nan.com,Fellsmúli 6,8998806
+7,Nan Gage,1222032486,Pilot,Co-Pilot,8998807,nan@nan.com,Fellsmúli 7,8998807
+8,Charla Johnson,1222432480,Pilot,Co-Pilot,8998808,nan@nan.com,Fellsmúli 8,8998808
+9,Sam Preciado,1222031480,Pilot,Co-Pilot,8998809,nan@nan.com,Fellsmúli 9,8998809
+10,Jasmine Hagadone,1122032480,Pilot,Co-Pilot,8998810,nan@nan.com,Fellsmúli 10,8998810
+11,Anna Phillips,1222032180,Pilot,Co-Pilot,8998811,nan@nan.com,Fellsmúli 11,8998811
+12,Patricia Bates,1222092480,Pilot,Co-Pilot,8998812,nan@nan.com,Fellsmúli 12,8998812
+13,Sherry Walker,1222035480,Flight attendant,Main flight attendant,8998813,nan@nan.com,Fellsmúli 13,8998813
+14,Margarita Fischer,1282032480,Flight attendant,Main flight attendant,8998814,nan@nan.com,Fellsmúli 14,8998814
+15,Judith Aleshire,1222032480,Flight attendant,Main flight attendant,8998815,nan@nan.com,Fellsmúli 15,8998815
+16,Jacob Blecha,1222032780,Flight attendant,Main flight attendant,8998816,nan@nan.com,Fellsmúli 16,8998816
+17,Lula Stefani,1222032487,Flight attendant,Main flight attendant,8998817,nan@nan.com,Fellsmúli 17,8998817
+18,Richard Sanders,1222035480,Flight attendant,Main flight attendant,8998818,nan@nan.com,Fellsmúli 18,8998818
+19,John Kline,1222032480,Flight attendant,Main flight attendant,8998819,nan@nan.com,Fellsmúli 19,8998819
+20,Evelyn Pickhardt,1202032480,Flight attendant,Main flight attendant,8998820,nan@nan.com,Fellsmúli 20,8998820
+21,Stacey Henrickson,1122032480,Flight attendant,Main flight attendant,8998821,nan@nan.com,Fellsmúli 21,8998821
+22,Delores Whitfield,1122032480,Flight attendant,Main flight attendant,8998822,nan@nan.com,Fellsmúli 22,8998822
+23,Maribel Lucero,1222042480,Flight attendant,Normal Flight attendant,8998823,nan@nan.com,Fellsmúli 23,8998823
+24,Katherine Wernimont,5222032480,Flight attendant,Normal Flight attendant,8998824,nan@nan.com,Fellsmúli 24,8998824
+25,Wilma Horne,1222032450,Flight attendant,Normal Flight attendant,8998825,nan@nan.com,Fellsmúli 25,8998825
+26,Bernard Carr,1222032380,Flight attendant,Normal Flight attendant,8998826,nan@nan.com,Fellsmúli 26,8998826
+27,Sara Davis,1222032488,Flight attendant,Normal Flight attendant,8998827,nan@nan.com,Fellsmúli 27,8998827
+28,Robert Swope,1222032080,Flight attendant,Normal Flight attendant,8998828,nan@nan.com,Fellsmúli 28,8998828
+29,John Iversen,1222032780,Flight attendant,Normal Flight attendant,8998829,nan@nan.com,Fellsmúli 29,8998829
+30,Abraham Superman,1229032480,Flight attendant,Normal Flight attendant,8998830,nan@nan.com,Fellsmúli 30,5544649
+31,Patrick Bateman,0,Flight attendant,Normal Flight attendant,4457879,i_simply_am_not_there@paulallen.com,Dorsia,

@@ -7,10 +7,13 @@ class FlightUI:
         self.logic_wrapper = LogicWrapper()
 
     def flight_menu(self):
+        print("-"*50)
         print("Flight Management")
         print("1. Create flight")
         print("2. List all flights")
         print("(B)ack to go back")
+        print("-"*50)
+        print("")
 
     def input_prompt(self):
         while True:
@@ -23,6 +26,8 @@ class FlightUI:
                 self.print_all_flights()
             elif command == "b":
                 return "b"
+            else: 
+                print("Invalid input try again..")
             
 
     def create_flight(self):
@@ -43,7 +48,7 @@ class FlightUI:
             if selec_place_of_departure.isdigit() and 1 <= int(selec_place_of_departure) <= len(location_list):
                 break
             else:
-                print("Invalid input!")
+                print("Invalid input try again..")
 
         dep_from = location_list[int(selec_place_of_departure) - 1]
 
@@ -57,16 +62,29 @@ class FlightUI:
             if select_place_of_arrival.isdigit() and 1 <= int(select_place_of_arrival) <= len(location_list):
                 break
             else:
-                print("Invalid input!")
+                print("Invalid input try again..")
 
         arr_at = location_list[int(select_place_of_arrival) - 1]
 
-        departure_time = input("Enter date of departure (YYYY M D): ")
-        dep_clock = input("Enter the time of departure (HH:MM): ") 
-        arrival_time = input("Enter date of arrival (YYYY M D): ")
+        import datetime
+
+        while True:
+            try:
+                departure_date_str = input("Enter date of departure (YYYY M D): ")
+                departure_time = datetime.datetime.strptime(departure_date_str, "%Y %m %d")
+
+                departure_time_str = input("Enter the time of departure (HH:MM): ")
+                dep_clock = datetime.datetime.strptime(departure_time_str, "%H:%M").time()
+
+                arrival_date_str = input("Enter date of arrival (YYYY M D): ")
+                arrival_time = datetime.datetime.strptime(arrival_date_str, "%Y %m %d")
+                break
+
+            except ValueError as e:
+                print(f"Invalid input! {e} Please enter dates and times in the specified format.")
+
 
         flight = Flight(flight_nr, dep_from, arr_at, departure_time, dep_clock, arrival_time)
-
         self.logic_wrapper.make_flight(flight)
 
 
@@ -75,13 +93,11 @@ class FlightUI:
         all_flights = self.logic_wrapper.get_all_flights()
 
         for elem in all_flights:
-
-            print("")
-            print("-"*30)
+            print("-"*50)
             print(f"Flight number: {elem.flight_nr}")
             print(f"Departure from: {elem.dep_from}")
             print(f"Arrival at: {elem.arr_at}")
             print(f"Date and time of departure from {elem.dep_from} (YYYY MM DD HH MM): {elem.departure_time} {elem.dep_clock}")
             print(f"Date of arrival at {elem.arr_at}: {elem.arrival_time}")
-            print("-"*30)
+            print("-"*50)
             print("")
