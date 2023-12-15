@@ -12,3 +12,57 @@ Afrakstur dagsins:
     gerðum repo á gihub
     lærðum að nota github
     gerðum gróft plan fyrir hönnunarskýrsluna 
+
+28/11/23
+Todo:
+    Breki - gera use cases
+    Haukur - gera git manual
+    Gummi - byrja á wireframe happy path
+    Róbert - gera use cases 
+
+29/11/23
+
+To do:
+    Birkir: Klára use cases 
+    Breki: Klára use cases og uppfæra kröfulista
+    Gummi: Klára class diagram
+    Haukur: Klára class diagram
+    Róbert: Klára use cases 
+
+Afrakstur dagsins
+    Birkir: kláraði use casein sín
+    Breki: kláraði use casein sín
+    Gummi: Kominn langt meö class diagram
+    Haukur: Kominn langt meö class diagram
+    Róbert: kláraði use casein sín 
+
+30/11/23
+Todo:
+    Breki: Class diagram
+    Birkir: Skýrslugerð
+    Gummi: Skýrslugerð
+    Haukur: Skýrslugerð/class diagram
+    Róbert: Skýrslugerð/class diagram 
+Afrakstur Dagsins:
+    Breki: Kominn langt á leið með class diagram
+    Birkir: Kominn langt á leið með skýrslu
+    Gummi: Kominn langt á leið með skýrslu
+    Haukur: Komunn langt á leið með skýrsu 
+    Róbert: Kominn langt á leið með class diagram 
+
+01/12/23
+Todo:
+    Breki: Klára class diagram og hjálpa til við skýrslugerð
+    Birkir: Klára  skýrslugerð 
+    Gummi: Klára skýrslugerð
+    Haukur: Klára skýslugerð
+    Róbert: Fínpússa skýrslu og bæta við notendakröfum 
+Afrakstur Dagsins:
+    Breki: kláraði class diagram
+    Haukur: kláraði skýrslu
+    Gummi: kláraði requirements og lagaði use case
+    Róbert: kláraði skýrslu
+    Birkir:kláraði skýrslu
+
+
+
