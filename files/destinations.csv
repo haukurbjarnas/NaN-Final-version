@@ -5,4 +5,5 @@ numeric_id,id,country,airport,contact_name,contact_number,distance,time_from_ice
 4,FAE,Faroe Islands,Thorshavn Airport,Breki Gunnarsson Arndal,8234649,1900,2
 5,LWK,Scotland,Tingwall Airport,Haukur Bjarnason,7745655,3002,5
 6,KEF,Iceland,Keflavik Airport,Guðmundur Hrafn Torfason,9877789,0,0
-7,GAZ,Gahza,None,Adbulla RIP,0,400000000000000000000,79
+7,SAL,Sweden,Stockholm Arlanda,Sven Björnson,12345,3000,2
+8,CPH,Denmark,Copenhagen Airport,Sven Svenson,1234,2000,2

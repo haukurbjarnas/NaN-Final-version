@@ -40,7 +40,7 @@ class FlightUI:
         num = 1
         for elem in list_of_destinations:
             print(f"{num}. Country: {elem.country} Airport: {elem.airport}")
-            location_list.append(elem.airport)
+            location_list.append(elem.id)
             num += 1
 
         while True:
@@ -70,18 +70,18 @@ class FlightUI:
 
         while True:
             try:
-                departure_date_str = input("Enter date of departure (YYYY M D): ")
-                departure_time = datetime.datetime.strptime(departure_date_str, "%Y %m %d")
+                departure_time = input("Enter date of departure (YYYY M D): ")
+      
 
-                departure_time_str = input("Enter the time of departure (HH:MM): ")
-                dep_clock = datetime.datetime.strptime(departure_time_str, "%H:%M").time()
+                dep_clock = input("Enter the time of departure (HH:MM): ")
+           
 
-                arrival_date_str = input("Enter date of arrival (YYYY M D): ")
-                arrival_time = datetime.datetime.strptime(arrival_date_str, "%Y %m %d")
+                arrival_time = input("Enter date of arrival (YYYY M D): ")
+                
                 break
 
-            except ValueError as e:
-                print(f"Invalid input! {e} Please enter dates and times in the specified format.")
+            except ValueError:
+                print(f"Invalid input!Please enter dates and times in the specified format.")
 
 
         flight = Flight(flight_nr, dep_from, arr_at, departure_time, dep_clock, arrival_time)

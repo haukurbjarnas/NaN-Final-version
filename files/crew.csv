@@ -30,3 +30,5 @@ nid,name,ssn,role,rank,phone_nr,email,address,home_phone
 29,John Iversen,1222032780,Flight attendant,Normal Flight attendant,8998829,nan@nan.com,Fellsmúli 29,8998829
 30,Abraham Superman,1229032480,Flight attendant,Normal Flight attendant,8998830,nan@nan.com,Fellsmúli 30,5544649
 31,Patrick Bateman,0,Flight attendant,Normal Flight attendant,4457879,i_simply_am_not_there@paulallen.com,Dorsia,
+32,John Johnson,1234567,Pilot,Captain,1234567,johnjohn@gmail.com,Heimili 3,
+33,John Davidson,123456789,Flight attendant,Normal Flight attendant,1234567,mail@gmail.com,Heimilsfang,3214567
