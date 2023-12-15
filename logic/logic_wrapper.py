@@ -3,14 +3,12 @@ from logic.destination_logic import DestinationLogic
 from logic.flight_logic import FlightLogic
 from logic.voyage_logic import VoyageLogic
 from logic.schedule_logic import SchedulesLogic
-from data.data_wrapper import DataWrapper
 
 class LogicWrapper:
     
     def __init__(self):
         self.employee_logic = EmployeeLogic()
         self.destination_logic = DestinationLogic()
-        self.data_wrapper = DataWrapper()
         self.flight_logic = FlightLogic()
         self.voyage_logic = VoyageLogic()
         self.schedule_logic = SchedulesLogic()
@@ -93,3 +91,9 @@ class LogicWrapper:
     
     def check_day(self, voyage, name):
         return self.voyage_logic.check_matching_day(voyage, name)
+    
+    def available_employees(self, day):
+        return self.schedule_logic.available_employees(day)
+    
+    def busy_employees(self, day):
+        return self.schedule_logic.busy_employees(day)

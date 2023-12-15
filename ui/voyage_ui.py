@@ -12,6 +12,8 @@ class VoyageUI:
         self.employee_ui = EmployeeUI()
 
     def voyage_menu(self):
+        print("-"*30)
+        print("")
         print("Voyage Management")
         print("1. Create voyage")
         print("2. List all voyages")
@@ -90,11 +92,6 @@ class VoyageUI:
             print(f"{num10}. Flight number: {elem.flight_nr} departing from {elem.dep_from} and arriving at {elem.arr_at}")
             num10 += 1
 
-        # for flight in all_flights:
-        #     if flight.flight_nr != flight_nr:
-        #         print(f"{num2}. Flight number: {flight.flight_nr} from {flight.dep_from} to {flight.arr_at} Date: {flight.departure_time}")
-        #         num2 += 1
-        #         flight_number_two_list.append(flight.flight_nr)
         while True:
             flight_nr_choice_two = input("Select the second flight: ")
             if flight_nr_choice_two.isdigit() and 0 < int(flight_nr_choice_two) < num10:
@@ -219,16 +216,7 @@ class VoyageUI:
                         break
                 else:
                     print("Invalid input!")
-            #new_info = captain_list[int(captain_choice)-1]
-            # while True:
-            #     new_info = all_pilots[int(captain_choice)].name
-            #     voyage_same_day_check = self.logic_wrapper.check_day(voyage_to_assign, new_info)
-            #     if len(voyage_same_day_check) > 0:
-            #         print("Employee is already assigned to voyage with the same date!")
-            #     else:
-            #         break
-            # new_info = all_pilots[int(captain_choice)].name
-        
+
 
         if wich_crew_to_add == "2":
             update = "copilot"

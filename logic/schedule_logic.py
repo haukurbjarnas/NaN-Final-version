@@ -43,39 +43,47 @@ class SchedulesLogic:
         return matching_voyage
     
 
-    def aviable_employees(self, day):
-        
-        year, month, day = day.split()
+    def available_employees(self, day):
 
-        flight_list = []
+        all_voyages = self.data_wrapper.read_add_voyages()
+        all_crew_members = self.data_wrapper.read_all_crew_members()
 
-        the_day = datetime.date(int(year), int(month), int(day))
+        busy_list = []
+        available_list = []
+
+        for voyage in all_voyages:
+            if voyage.date1 == day or voyage.date2 == day:
+                busy_list.append(voyage.captain)
+                busy_list.append(voyage.copilot)
+                busy_list.append(voyage.fa1)
+                busy_list.append(voyage.fa2)
+
+        for crew_member in all_crew_members:
+            if crew_member.name in busy_list:
+                pass
+            else:
+                available_list.append(crew_member.name)
+
+        return available_list
+    
+    def busy_employees(self, day):
+
+        a_dict = dict()
 
         all_voyages = self.data_wrapper.read_add_voyages()
         all_flights = self.data_wrapper.read_all_flights()
 
-
         for voyage in all_voyages:
-            for flight in all_flights:
-                if voyage.flight_nr == flight.flight_nr or voyage.flight_nr_back == flight.flight_nr:
-                    if flight.departure_time == the_day:
-                        pass
-                    else:
-                        if voyage.captain in flight_list:
-                            pass
-                        else:
-                            flight_list.append(voyage.captain)
-                        if voyage.copilot in flight_list:
-                            pass
-                        else:
-                            flight_list.append(voyage.copilot)
-                        if voyage.fa1 in flight_list:
-                            pass
-                        else:
-                            flight_list.append(voyage.fa1)
-                        if voyage.fa2 in flight_list:
-                            pass
-                        else:
-                            flight_list.append(voyage.fa2)
+            if voyage.date1 == day or voyage.date2 == day:
+                for flight in all_flights:
+                    if flight.flight_nr == voyage.flight_nr:
+                        if voyage.captain != "":
+                            a_dict[voyage.captain] = flight.arr_at
+                        if voyage.copilot != "":
+                            a_dict[voyage.copilot] = flight.arr_at
+                        if voyage.fa1 != "":
+                            a_dict[voyage.fa1] = flight.arr_at
+                        if voyage.fa2 != "":
+                            a_dict[voyage.fa2] = flight.arr_at
         
-        return flight_list
+        return a_dict

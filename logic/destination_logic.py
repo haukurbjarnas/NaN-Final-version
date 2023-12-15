@@ -1,5 +1,4 @@
 from data.data_wrapper import DataWrapper
-import csv
 class DestinationLogic:
     
     def __init__(self):

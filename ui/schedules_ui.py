@@ -11,8 +11,6 @@ class SchedulesUI:
         print("1. See employee specific weekly schedule")
         print("2. Check which employees are available by day")
         print("3. Check which employees are working and to what destination they are assigned")
-        
-
 
     def input_prompt(self):
         while True:
@@ -22,9 +20,9 @@ class SchedulesUI:
             if command == "1":
                 self.employee_specific_schedule()
             elif command == "2":
-                pass
+                self.employees_not_working_that_day()
             elif command == "3":
-                pass
+                self.are_employees_working_that_day()
             elif command == "b":
                 return "b"
             else:
@@ -57,4 +55,24 @@ class SchedulesUI:
 
     def are_employees_working_that_day(self):
 
-        pass
+        date = input("Enter date to check working employees: ")
+
+        busy_employees = self.logic_wrapper.busy_employees(date)
+
+        for key in busy_employees.keys():
+            print(f"{key}: going to {busy_employees[key]}")
+
+    def employees_not_working_that_day(self):
+
+        date = input("Enter date to check available employees: ")
+
+        available_crew = self.logic_wrapper.available_employees(date)
+
+        print(f"Here are all available employees {date}:")
+        for crew_member in available_crew:
+            if crew_member == "":
+                pass
+            else:
+                print(crew_member)
+
+        

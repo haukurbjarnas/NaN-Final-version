@@ -3,7 +3,6 @@ from logic.logic_wrapper import LogicWrapper
 import time
 
 class FlightUI:
-
     def __init__(self) -> None:
         self.logic_wrapper = LogicWrapper()
 

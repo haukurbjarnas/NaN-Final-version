@@ -3,6 +3,7 @@ from models.voyage import Voyage
 from data.destination_data import DestinationData
 from data.crew_data import CrewData
 from data.flight_data import FlightData
+
 class Voyage_Data:
     def __init__(self, file_name="files/voyages.csv"):
         self.file_name = file_name
